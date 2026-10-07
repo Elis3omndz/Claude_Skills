@@ -5,3 +5,4 @@ node_modules/
 renders/work-*/
 renders/.*/
 audio_engine_meta.json
+assets/voice/*.raw.wav

@@ -1,0 +1,45 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #c4-ground { position: absolute; inset: 0; background: radial-gradient(80% 45% at 50% 50%, #1d1912 0%, #0A0A0A 70%); }
+    #c4-a { position: absolute; left: 80px; top: 300px; width: 920px; }
+    #c4-b { position: absolute; left: 80px; top: 880px; width: 920px; text-align: right; }
+    .c4-num { display: inline-block; font-weight: 900; font-size: 330px; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+    #c4-n1 { color: #C9A84C; transform-origin: 0% 80%; }
+    #c4-n2 { color: #FFFFFF; transform-origin: 100% 80%; }
+    .c4-plus { color: #C9A84C; }
+    .c4-tag { display: inline-block; margin-top: 18px; padding: 18px 34px; font-weight: 800; font-size: 40px; letter-spacing: 0.2em; color: #0A0A0A; box-shadow: 10px 10px 0 #000; }
+    #c4-t1 { background: #FFFFFF; }
+    #c4-t2 { background: #C9A84C; }
+  </style>
+
+  <div id="root" data-composition-id="04-cifras" data-width="1080" data-height="1920" data-duration="4.513">
+    <div id="c4-ground" class="clip" data-start="0" data-duration="4.513" data-track-index="0"></div>
+    <div id="c4-body" class="clip" data-start="0" data-duration="4.513" data-track-index="1" style="position:absolute;inset:0;">
+      <div id="c4-a"><div class="c4-num" id="c4-n1"><span id="c4-v1">0</span><span class="c4-plus">+</span></div><div><div class="c4-tag" id="c4-t1">AÑOS DE EXPERIENCIA</div></div></div>
+      <div id="c4-b"><div class="c4-num" id="c4-n2"><span id="c4-v2">0</span><span class="c4-plus">+</span></div><div><div class="c4-tag" id="c4-t2">PROYECTOS</div></div></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      function count(sel, target, at, dur) {
+        const el = document.querySelector(sel); const st = { v: 0 };
+        tl.to(st, { v: target, duration: dur, ease: "power2.out", onUpdate: function () { el.textContent = String(Math.round(st.v)); } }, at);
+      }
+      // Scene 1 — "12+" slams in and counts on "doce"
+      tl.fromTo("#c4-n1", { opacity: 0, scale: 1.8, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.5, ease: "back.out(1.8)" }, 0.3);
+      count("#c4-v1", 12, 0.35, 0.75);
+      tl.fromTo("#c4-t1", { opacity: 0, y: -80, rotation: 10 }, { opacity: 1, y: 0, rotation: -2, duration: 0.45, ease: "back.out(2)" }, 1.1);
+      // Scene 2 — "200+" slams in and counts on "doscientos"
+      tl.fromTo("#c4-n2", { opacity: 0, scale: 1.8, rotation: 10 }, { opacity: 1, scale: 1, rotation: 3, duration: 0.5, ease: "back.out(1.8)" }, 2.05);
+      count("#c4-v2", 200, 2.1, 0.8);
+      tl.fromTo("#c4-t2", { opacity: 0, y: -80, rotation: -10 }, { opacity: 1, y: 0, rotation: 2, duration: 0.45, ease: "back.out(2)" }, 2.8);
+      // Scene 3 — hold
+      window.__timelines["04-cifras"] = tl;
+    })();
+  </script>
+</template>

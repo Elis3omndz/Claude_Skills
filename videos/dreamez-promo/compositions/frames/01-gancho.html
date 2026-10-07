@@ -1,0 +1,60 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #g1-ground { position: absolute; inset: 0; background: radial-gradient(90% 55% at 50% 62%, #1d1912 0%, #0A0A0A 70%); }
+    #g1-stage { position: absolute; left: 280px; top: 700px; width: 520px; height: 1098px; perspective: 2400px; }
+    #g1-phone { position: absolute; inset: 0; border-radius: 74px; background: #1b1b1b; box-shadow: 0 0 0 3px #9A7A32, 0 60px 120px rgba(0,0,0,0.75); }
+    .g1-screen { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 58px; overflow: hidden; background: #0A0A0A; }
+    .g1-screen img { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+    .g1-notch { position: absolute; left: 50%; top: 30px; width: 130px; height: 34px; margin-left: -65px; border-radius: 20px; background: #000; }
+    #g1-copy { position: absolute; left: 70px; right: 70px; top: 250px; text-align: center; }
+    #g1-l1 { font-weight: 800; font-size: 76px; line-height: 1.05; letter-spacing: -0.02em; }
+    .g1-w { display: inline-block; margin: 0 0.12em; }
+    #g1-stickwrap { margin-top: 26px; height: 150px; display: flex; justify-content: center; }
+    #g1-sticker { display: inline-block; padding: 20px 44px; background: #C9A84C; color: #0A0A0A; font-weight: 900; font-size: 104px; line-height: 1; letter-spacing: -0.01em; box-shadow: 10px 10px 0 #000; }
+    #g1-l3 { margin-top: 30px; font-weight: 800; font-size: 76px; line-height: 1.05; }
+    .g1-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; }
+  </style>
+
+  <div id="root" data-composition-id="01-gancho" data-width="1080" data-height="1920" data-duration="3.667">
+    <div id="g1-ground" class="clip" data-start="0" data-duration="3.667" data-track-index="0"></div>
+    <div id="g1-body" class="clip" data-start="0" data-duration="3.667" data-track-index="1" style="position:absolute;inset:0;">
+      <div id="g1-stage">
+        <div id="g1-phone">
+          <div class="g1-screen"><img src="assets/phone-hero.png" alt=""></div>
+          <div class="g1-notch"></div>
+        </div>
+      </div>
+      <div id="g1-copy">
+        <div id="g1-l1"><span class="g1-w">¿Tu</span><span class="g1-w">marca</span><span class="g1-w">se</span><span class="g1-w">ve</span></div>
+        <div id="g1-stickwrap"><div id="g1-sticker">¡INCREÍBLE!</div></div>
+        <div id="g1-l3"><span class="g1-w" id="g1-en">en</span><span class="g1-w g1-em" id="g1-redes">redes?</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Scene 1 — the phone tumbles up from below and settles tilted
+      tl.fromTo("#g1-phone",
+        { y: 1100, rotationX: 40, rotationY: -40, rotationZ: -18, scale: 0.8 },
+        { y: 0, rotationX: 8, rotationY: -14, rotationZ: 4, scale: 1, duration: 0.9, ease: "back.out(1.15)" }, 0);
+      gsap.utils.toArray("#g1-l1 .g1-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15 + i * 0.27);
+      });
+      // Scene 2 — "¡INCREÍBLE!" slams on the word
+      tl.fromTo("#g1-sticker", { opacity: 0, scale: 2.2, rotation: 8 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.45, ease: "back.out(1.9)" }, 1.6);
+      tl.to("#g1-phone", { x: -12, duration: 0.05, ease: "power1.out" }, 1.72);
+      tl.to("#g1-phone", { x: 9, duration: 0.06, ease: "power1.inOut" }, 1.77);
+      tl.to("#g1-phone", { x: 0, duration: 0.1, ease: "power2.out" }, 1.83);
+      // Scene 3 — "en redes?"
+      tl.fromTo("#g1-en", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 2.18);
+      tl.fromTo("#g1-redes", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 2.32);
+      window.__timelines["01-gancho"] = tl;
+    })();
+  </script>
+</template>

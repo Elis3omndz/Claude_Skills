@@ -2,12 +2,12 @@
 workflow: product-launch-video
 flow: automation
 storyboard: yes
-message: "Tu proyecto empieza con un formulario — y te respondemos al instante."
+message: "Con DREAMEZ tu marca se ve increíble, y reservar tu sesión toma segundos."
 destination: instagram-reels
 aspect: 1080x1920
 language: es
 audience: "Marcas, negocios y personas en El Salvador que buscan video, drone, fotografía o contenido digital"
-length: 40s
+length: 34s
 angle: site-showcase
 narration: yes
 voice: ef_dora
@@ -35,8 +35,9 @@ correo (~16s) → CTA "Reserva tu sesión" + URL (~5s).
 - **v2 (pedido del usuario):** agregar narrador (voz Kokoro "Dora", femenina, español) y mostrar la web REAL dentro de dispositivos 3D (celular + laptop flotando) con elementos de la web que "saltan" fuera de la pantalla — estilo de su referencia de Pinterest (no accesible aquí; interpretación confirmada por el usuario). Tono "animado, divertido y llamativo".
 - **Lenguaje simple:** NO decir "n8n" ni términos técnicos. Hablar del beneficio: "reservas tu sesión en segundos… y al instante te llega la confirmación a tu correo".
 
-- Escena de automatización recreada (sin capturas del usuario): el formulario real de la web llenándose (Nombre, Correo, WhatsApp, Fecha, Servicio, Proyecto → "Enviar solicitud →"), luego un diagrama del flujo n8n (Formulario → n8n guarda el cliente → envía correo), y un correo de confirmación con la marca: "Recibimos tu solicitud, te contactaremos pronto."
-- Sin música horneada: el usuario elegirá un audio en tendencia en Instagram al publicar (no hay HeyGen ni generador local disponible). Cortes con ritmo de ~105 bpm. Todo el mensaje en textos animados en pantalla. Sin voz en off.
+- (v1, reemplazado en v2) diagrama del flujo n8n. v2: el formulario real (captura) se llena en el celular y un correo de confirmación con la marca sale volando: "¡Recibimos tu solicitud! Te contactaremos muy pronto."
+- v2 feedback: "No es la web tal cual, pero me gusta" — mostrar las capturas reales sin redibujar dentro de los dispositivos; resultado "lo más genial posible".
+- Sin música horneada: el usuario elegirá un audio en tendencia en Instagram al publicar (no hay HeyGen ni generador local disponible). v2 SÍ tiene voz en off (Dora).
 - Diseño: la paleta y tipografías de la propia web — negro #0A0A0A / #111111, dorado #C9A84C / #E8C97A / #9A7A32, Playfair Display (títulos) + Montserrat (texto).
 
 ## Notes

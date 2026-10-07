@@ -1,0 +1,45 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #z7-ground { position: absolute; inset: 0; background: #000000; }
+    #z7-cta { position: absolute; left: 60px; right: 60px; top: 960px; text-align: center; }
+    #z7-h { font-weight: 900; font-size: 100px; line-height: 1.05; letter-spacing: -0.02em; }
+    .z7-w { display: inline-block; margin: 0 0.1em; }
+    .z7-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; }
+    #z7-pillrow { margin-top: 54px; display: flex; justify-content: center; }
+    #z7-pill { padding: 30px 60px; border-radius: 999px; background: #C9A84C; color: #0A0A0A; font-weight: 800; font-size: 44px; letter-spacing: 0.03em; box-shadow: 0 20px 50px rgba(201,168,76,0.25); }
+    #z7-tag { margin-top: 56px; font-weight: 600; font-size: 34px; letter-spacing: 0.42em; color: #C9A84C; }
+  </style>
+
+  <div id="root" data-composition-id="07-cta" data-width="1080" data-height="1920" data-duration="5.515">
+    <div id="z7-ground" class="clip" data-start="0" data-duration="5.515" data-track-index="0"></div>
+    <!-- approved frame video hoisted by assemble-index -->
+    <div id="z7-body" class="clip" data-start="0" data-duration="5.515" data-track-index="2" style="position:absolute;inset:0;">
+      <div id="z7-cta">
+        <div id="z7-h"><span class="z7-w">Reserva</span><span class="z7-w">tu</span><span class="z7-w z7-em">sesión</span></div>
+        <div id="z7-pillrow"><div id="z7-pill">dreamezsv.netlify.app</div></div>
+        <div id="z7-tag">CAPTURA LA REALIDAD</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Scene 1 — the official logo animation plays (framework-owned video)
+      // Scene 2 — "Reserva tu sesión" on the narrator's words, URL pill bounces on "hoy"
+      gsap.utils.toArray("#z7-h .z7-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 60, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, 0.5 + i * 0.27);
+      });
+      tl.fromTo("#z7-pill", { opacity: 0, scale: 0.3, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "back.out(2.2)" }, 1.45);
+      // Scene 3 — the tagline on "captura la realidad"
+      tl.fromTo("#z7-tag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 2.38);
+      // Scene 4 — hold, then the film's only exit
+      tl.to("#z7-cta", { opacity: 0, duration: 0.3, ease: "power1.in" }, 5.2);
+      window.__timelines["07-cta"] = tl;
+    })();
+  </script>
+</template>

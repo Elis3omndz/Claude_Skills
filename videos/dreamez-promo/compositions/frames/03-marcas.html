@@ -1,0 +1,63 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #m3-ground { position: absolute; inset: 0; background: radial-gradient(90% 50% at 50% 52%, #1d1912 0%, #0A0A0A 70%); }
+    #m3-stage { position: absolute; left: 90px; top: 690px; width: 900px; height: 600px; perspective: 2600px; }
+    #m3-laptop { position: absolute; inset: 0; }
+    #m3-lid { position: absolute; left: 0; top: 0; width: 900px; height: 562px; border-radius: 26px 26px 0 0; background: #1b1b1b; box-shadow: 0 0 0 3px #9A7A32, 0 50px 110px rgba(0,0,0,0.7); }
+    #m3-screen { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; overflow: hidden; background: #0A0A0A; border-radius: 8px; }
+    #m3-site { position: absolute; left: 0; top: 0; width: 864px; height: auto; }
+    #m3-base { position: absolute; left: -50px; top: 562px; width: 1000px; height: 34px; border-radius: 0 0 34px 34px; background: linear-gradient(#303030, #121212); box-shadow: 0 0 0 3px #9A7A32; }
+    #m3-h { position: absolute; left: 60px; right: 60px; top: 250px; text-align: center; font-weight: 800; font-size: 80px; line-height: 1.05; letter-spacing: -0.02em; }
+    .m3-w { display: inline-block; margin: 0 0.11em; }
+    .m3-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; }
+    .m3-logo { position: absolute; width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 0 0 4px #9A7A32, 0 20px 40px rgba(0,0,0,0.6); }
+  </style>
+
+  <div id="root" data-composition-id="03-marcas" data-width="1080" data-height="1920" data-duration="4.442">
+    <div id="m3-ground" class="clip" data-start="0" data-duration="4.442" data-track-index="0"></div>
+    <div id="m3-body" class="clip" data-start="0" data-duration="4.442" data-track-index="1" style="position:absolute;inset:0;">
+      <div id="m3-h"><span class="m3-w">Ya</span><span class="m3-w">confían</span><span class="m3-w">en</span><span class="m3-w m3-em">nosotros</span></div>
+      <div id="m3-stage">
+        <div id="m3-laptop">
+          <div id="m3-lid"><div id="m3-screen"><img id="m3-site" src="assets/desktop-scroll.png" alt=""></div></div>
+          <div id="m3-base"></div>
+        </div>
+      </div>
+      <img class="m3-logo" src="assets/marca-la-casa-de-las-pupusas.png" style="left:70px;top:470px" alt="">
+      <img class="m3-logo" src="assets/marca-kuskatan.png" style="left:330px;top:440px" alt="">
+      <img class="m3-logo" src="assets/marca-guapollon.png" style="left:600px;top:470px" alt="">
+      <img class="m3-logo" src="assets/marca-abel.png" style="left:860px;top:440px" alt="">
+      <img class="m3-logo" src="assets/marca-barranko.png" style="left:90px;top:1330px" alt="">
+      <img class="m3-logo" src="assets/marca-sabor-del-cielo.png" style="left:350px;top:1360px" alt="">
+      <img class="m3-logo" src="assets/marca-la-casa-del-filete.png" style="left:610px;top:1330px" alt="">
+      <img class="m3-logo" src="assets/marca-vipros.png" style="left:860px;top:1360px" alt="">
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Scene 1 — the laptop slides in from the right in 3D
+      tl.fromTo("#m3-laptop", { x: 700, rotationY: -35, rotationX: 18 }, { x: 0, rotationY: -6, rotationX: 10, duration: 0.6, ease: "power3.out" }, 0);
+      // Scene 2 — the real site scrolls: hero → Campañas → Marcas
+      tl.fromTo("#m3-site", { y: 0 }, { y: -1322, duration: 2.1, ease: "power2.inOut" }, 0.25);
+      // Scene 3 — the client logos fly out of the screen and land around the laptop
+      gsap.utils.toArray("#m3-body .m3-logo").forEach(function (lg, i) {
+        const left = parseFloat(lg.style.left), top = parseFloat(lg.style.top);
+        const dx = 540 - 75 - left, dy = 970 - 75 - top;
+        tl.fromTo(lg, { opacity: 0, x: dx, y: dy, scale: 0.25, rotation: -30 + i * 9 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.7)" }, 1.9 + i * 0.14);
+      });
+      gsap.utils.toArray("#m3-h .m3-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 2.12 + i * 0.16);
+      });
+      tl.fromTo("#m3-h .m3-em", { scale: 0.5 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, 2.6);
+      // Scene 4 — hold
+      window.__timelines["03-marcas"] = tl;
+    })();
+  </script>
+</template>

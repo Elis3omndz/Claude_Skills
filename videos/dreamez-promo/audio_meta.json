@@ -5,43 +5,43 @@
     {
       "frame": 1,
       "path": "assets/voice/01.wav",
-      "duration_s": 2.667,
+      "duration_s": 3.267,
       "words": []
     },
     {
       "frame": 2,
       "path": "assets/voice/02.wav",
-      "duration_s": 4.523,
+      "duration_s": 5.123,
       "words": []
     },
     {
       "frame": 3,
       "path": "assets/voice/03.wav",
-      "duration_s": 3.392,
+      "duration_s": 4.042,
       "words": []
     },
     {
       "frame": 4,
       "path": "assets/voice/04.wav",
-      "duration_s": 3.413,
+      "duration_s": 4.113,
       "words": []
     },
     {
       "frame": 5,
       "path": "assets/voice/05.wav",
-      "duration_s": 6.251,
+      "duration_s": 6.951,
       "words": []
     },
     {
       "frame": 6,
       "path": "assets/voice/06.wav",
-      "duration_s": 4.608,
+      "duration_s": 5.458,
       "words": []
     },
     {
       "frame": 7,
       "path": "assets/voice/07.wav",
-      "duration_s": 3.115,
+      "duration_s": 5.515,
       "words": []
     }
   ],

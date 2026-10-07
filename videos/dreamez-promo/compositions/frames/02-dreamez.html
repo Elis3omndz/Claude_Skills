@@ -1,0 +1,52 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #d2-ground { position: absolute; inset: 0; background: radial-gradient(90% 55% at 50% 60%, #1d1912 0%, #0A0A0A 70%); }
+    #d2-stage { position: absolute; left: 320px; top: 860px; width: 440px; height: 929px; perspective: 2400px; }
+    #d2-phone { position: absolute; inset: 0; border-radius: 64px; background: #1b1b1b; box-shadow: 0 0 0 3px #9A7A32, 0 50px 110px rgba(0,0,0,0.75); }
+    .d2-screen { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 50px; overflow: hidden; background: #0A0A0A; }
+    .d2-screen img { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+    .d2-notch { position: absolute; left: 50%; top: 26px; width: 110px; height: 30px; margin-left: -55px; border-radius: 18px; background: #000; }
+    #d2-logo { position: absolute; left: 150px; top: 290px; width: 780px; height: auto; }
+    .d2-pill { position: absolute; padding: 26px 46px; border-radius: 999px; background: #C9A84C; color: #0A0A0A; font-weight: 800; font-size: 40px; letter-spacing: 0.14em; box-shadow: 0 18px 40px rgba(0,0,0,0.55); }
+  </style>
+
+  <div id="root" data-composition-id="02-dreamez" data-width="1080" data-height="1920" data-duration="5.623">
+    <div id="d2-ground" class="clip" data-start="0" data-duration="5.623" data-track-index="0"></div>
+    <div id="d2-body" class="clip" data-start="0" data-duration="5.623" data-track-index="1" style="position:absolute;inset:0;">
+      <div id="d2-stage">
+        <div id="d2-phone">
+          <div class="d2-screen"><img src="assets/phone-hero.png" alt=""></div>
+          <div class="d2-notch"></div>
+        </div>
+      </div>
+      <div class="d2-pill" id="d2-p1" style="left:70px;top:640px">VIDEO</div>
+      <div class="d2-pill" id="d2-p2" style="left:390px;top:730px">DRONE</div>
+      <div class="d2-pill" id="d2-p3" style="left:640px;top:630px">FOTOGRAFÍA</div>
+      <img id="d2-logo" src="assets/logo-dreamez.png" alt="">
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Scene 1 — the phone settles lower-center, tilted the other way
+      tl.fromTo("#d2-phone", { rotationY: -20, rotationX: 14, y: 60 }, { rotationY: 12, rotationX: 10, y: 0, duration: 0.8, ease: "power3.out" }, 0);
+      // Scene 2 — the DREAMEZ logo shoots out of the phone screen on "Drímez"
+      tl.fromTo("#d2-logo",
+        { opacity: 0, scale: 0.18, x: 0, y: 760, rotation: -10 },
+        { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.7, ease: "back.out(1.5)" }, 0.45);
+      tl.to("#d2-phone", { scale: 0.96, duration: 0.12, ease: "power2.in" }, 0.45);
+      tl.to("#d2-phone", { scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.6);
+      // Scene 3 — the service pills spring out from behind the phone on each word
+      [["#d2-p1", 1.0, -6, 320, 340], ["#d2-p2", 1.48, 3, 0, 300], ["#d2-p3", 1.9, -3, -260, 330]].forEach(function (p) {
+        tl.fromTo(p[0], { opacity: 0, scale: 0.2, x: p[3], y: p[4], rotation: 0 }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: p[2], duration: 0.5, ease: "back.out(1.8)" }, p[1]);
+      });
+      // Scene 4 — the phone turns toward camera on "lo mejor de tu negocio"
+      tl.to("#d2-phone", { rotationY: -4, rotationX: 4, duration: 1.4, ease: "power2.inOut" }, 2.9);
+      window.__timelines["02-dreamez"] = tl;
+    })();
+  </script>
+</template>
