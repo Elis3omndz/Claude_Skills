@@ -1,0 +1,71 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #c07-ground { position: absolute; inset: 0; background: #0A0A0A; }
+    #c07-notif { position: absolute; left: 65px; right: 65px; top: 250px; height: 150px; background: #1C1C1C; border: 2px solid #2C2C2C; display: flex; align-items: center; padding: 0 40px; }
+    #c07-av { width: 98px; height: 98px; flex: none; background: #0A0A0A; border: 2px solid #9A7A32; display: flex; align-items: center; justify-content: center; }
+    #c07-av img { width: 70px; height: auto; }
+    #c07-ntxt { margin-left: 34px; flex: 1; }
+    #c07-nmeta { display: flex; justify-content: space-between; font-weight: 500; font-size: 26px; color: #9A9A9A; letter-spacing: 0.12em; }
+    #c07-ntitle { margin-top: 8px; font-weight: 700; font-size: 40px; }
+    #c07-mail { position: absolute; left: 65px; right: 65px; top: 450px; background: #F6F4EF; color: #111111; transform-origin: 50% 0; }
+    #c07-mhead { background: #0A0A0A; height: 210px; display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #C9A84C; }
+    #c07-mhead img { width: 380px; height: auto; }
+    #c07-mbody { padding: 54px 64px 70px; }
+    #c07-hola { font-weight: 400; font-size: 36px; color: #666666; }
+    #c07-mh { margin-top: 20px; font-weight: 800; font-size: 66px; line-height: 1.08; letter-spacing: -0.01em; }
+    .c07-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #9A7A32; letter-spacing: 0; }
+    #c07-div { margin: 40px 0; height: 3px; background: #C9A84C; transform-origin: 0 50%; }
+    #c07-p { font-weight: 400; font-size: 36px; line-height: 1.5; color: #333333; }
+    #c07-sig { margin-top: 38px; font-weight: 500; font-size: 30px; color: #777777; }
+    #c07-foot { position: absolute; left: 86px; right: 86px; top: 1390px; text-align: center; font-weight: 800; font-size: 66px; line-height: 1.1; }
+    .c07-w { display: inline-block; margin-right: 0.22em; }
+    .c07-gold { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; letter-spacing: 0; }
+  </style>
+
+  <div data-hf-id="hf-9y13" id="root" data-composition-id="07-correo" data-width="1080" data-height="1920" data-duration="5.1">
+    <div data-hf-id="hf-h7ou" id="c07-ground" class="clip" data-start="0" data-duration="5.1" data-track-index="0"></div>
+    <div data-hf-id="hf-to0f" id="c07-body" class="clip" data-start="0" data-duration="5.1" data-track-index="1" style="position:absolute;inset:0;">
+      <div data-hf-id="hf-a796" id="c07-notif">
+        <div data-hf-id="hf-zws1" id="c07-av"><img data-hf-id="hf-f73k" src="assets/logo-monograma.png" alt=""></div>
+        <div data-hf-id="hf-mst2" id="c07-ntxt"><div data-hf-id="hf-jbs9" id="c07-nmeta"><span data-hf-id="hf-p7jr">DREAMEZ</span><span data-hf-id="hf-kv8s">ahora</span></div><div data-hf-id="hf-9cva" id="c07-ntitle">Recibimos tu solicitud</div></div>
+      </div>
+      <div data-hf-id="hf-wivd" id="c07-mail">
+        <div data-hf-id="hf-6bu3" id="c07-mhead"><img data-hf-id="hf-kobp" src="assets/logo-dreamez.png" alt=""></div>
+        <div data-hf-id="hf-6b41" id="c07-mbody">
+          <div data-hf-id="hf-xq2i" id="c07-hola">Hola María,</div>
+          <div data-hf-id="hf-gx03" id="c07-mh">Recibimos tu <span data-hf-id="hf-o800" class="c07-em">solicitud</span></div>
+          <div data-hf-id="hf-ye19" id="c07-div"></div>
+          <div data-hf-id="hf-equu" id="c07-p">Nos contactaremos contigo muy pronto para hablar de tu proyecto.</div>
+          <div data-hf-id="hf-52ru" id="c07-sig">— Equipo DREAMEZ</div>
+        </div>
+      </div>
+      <div data-hf-id="hf-2mf4" id="c07-foot"><span data-hf-id="hf-wjm7" class="c07-w">Respuesta</span><span data-hf-id="hf-5uh2" class="c07-w">al</span><span data-hf-id="hf-me7u" class="c07-w c07-gold">instante</span></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Scene 1 — the notification drops in from above
+      tl.fromTo("#c07-notif", { opacity: 0, y: -120 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.05);
+      // Scene 2 — the email unfolds beneath it, its pieces settling in order
+      tl.fromTo("#c07-mail", { opacity: 0, scaleY: 0.2 }, { opacity: 1, scaleY: 1, duration: 0.6, ease: "power3.out" }, 0.9);
+      tl.fromTo("#c07-mhead img", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.2);
+      tl.fromTo("#c07-hola", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 1.35);
+      tl.fromTo("#c07-mh", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.5);
+      tl.fromTo("#c07-div", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 1.75);
+      tl.fromTo("#c07-p", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.95);
+      tl.fromTo("#c07-sig", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 2.2);
+      // Scene 3 — the payoff line
+      gsap.utils.toArray("#c07-foot .c07-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.45 + i * 0.12);
+      });
+      // Scene 4 — HELD: nothing moves from ~3.1s to the end
+      window.__timelines["07-correo"] = tl;
+    })();
+  </script>
+</template>

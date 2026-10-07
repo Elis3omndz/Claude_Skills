@@ -1,0 +1,4 @@
+snapshots/
+renders/borrador-*
+.hyperframes/frame-packets/
+node_modules/

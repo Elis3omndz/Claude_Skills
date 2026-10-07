@@ -1,0 +1,101 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #m02-ground { position: absolute; inset: 0; background: #0A0A0A; }
+    .m02-lab { font-weight: 500; font-size: 26px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; }
+    .m02-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; letter-spacing: 0; }
+    /* Scene 1 — real portfolio screen as a framed card */
+    #m02-intro { position: absolute; inset: 0; }
+    #m02-introlab { position: absolute; left: 86px; top: 250px; }
+    #m02-card { position: absolute; left: 86px; top: 260px; width: 908px; height: 1060px; overflow: hidden; border: 2px solid #9A7A32; background: #0A0A0A; }
+    #m02-card img { position: absolute; left: 0; top: -150px; width: 908px; height: auto; }
+    /* Scene 2+ — header + logo wall */
+    #m02-head { position: absolute; left: 86px; right: 86px; top: 250px; }
+    #m02-h { margin-top: 26px; font-weight: 800; font-size: 86px; line-height: 1.05; letter-spacing: -0.02em; }
+    .m02-w { display: inline-block; margin-right: 0.22em; }
+    #m02-sectors { margin-top: 28px; font-weight: 500; font-size: 27px; letter-spacing: 0.2em; text-transform: uppercase; color: #BDBDBD; line-height: 1.5; }
+    #m02-wall { position: absolute; left: 86px; top: 760px; width: 908px; height: 681px; }
+    .m02-hl { position: absolute; left: 0; width: 908px; height: 2px; background: #9A7A32; transform-origin: 0 50%; }
+    .m02-vl { position: absolute; top: 0; width: 2px; background: #9A7A32; transform-origin: 50% 0; }
+    .m02-cell { position: absolute; width: 227px; height: 227px; display: flex; align-items: center; justify-content: center; }
+    .m02-cell img { width: 150px; height: 150px; object-fit: contain; border-radius: 50%; }
+    #m02-more { position: absolute; left: 454px; top: 454px; width: 454px; height: 227px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    #m02-more b { font-weight: 800; font-size: 72px; color: #C9A84C; line-height: 1; font-variant-numeric: tabular-nums; }
+    #m02-more span { margin-top: 14px; font-weight: 500; font-size: 22px; letter-spacing: 0.22em; color: #BBBBBB; }
+  </style>
+
+  <div data-hf-id="hf-g3o9" id="root" data-composition-id="02-marcas" data-width="1080" data-height="1920" data-duration="5.9">
+    <div data-hf-id="hf-841r" id="m02-ground" class="clip" data-start="0" data-duration="5.9" data-track-index="0"></div>
+
+    <div data-hf-id="hf-yetp" id="m02-intro" class="clip" data-start="0" data-duration="2.4" data-track-index="1">
+      <div data-hf-id="hf-7b8j" id="m02-card"><img data-hf-id="hf-y8od" src="assets/02-portfolio-0.png" alt=""></div>
+    </div>
+
+    <div data-hf-id="hf-vsmo" id="m02-main" class="clip" data-start="1.6" data-duration="4.3" data-track-index="2" style="position:absolute;inset:0;">
+      <div data-hf-id="hf-ei07" id="m02-head">
+        <div data-hf-id="hf-lan0" class="m02-lab" id="m02-lab2">Colaboraciones</div>
+        <div data-hf-id="hf-qsun" id="m02-h"><span data-hf-id="hf-iqj5" class="m02-w">Marcas</span><span data-hf-id="hf-ztno" class="m02-w">con</span><span data-hf-id="hf-abwk" class="m02-w">las</span><span data-hf-id="hf-bsx1" class="m02-w">que</span><span data-hf-id="hf-hugr" class="m02-w">ha</span><span data-hf-id="hf-1qw8" class="m02-w m02-em">colaborado</span></div>
+        <div data-hf-id="hf-mnvs" id="m02-sectors">Restaurantes · Hotelería · Real estate · Marcas</div>
+      </div>
+      <div data-hf-id="hf-35a1" id="m02-wall">
+        <div data-hf-id="hf-ujbf" class="m02-hl" style="top:0"></div>
+        <div data-hf-id="hf-7sak" class="m02-hl" style="top:227px"></div>
+        <div data-hf-id="hf-yfkc" class="m02-hl" style="top:454px"></div>
+        <div data-hf-id="hf-iiu1" class="m02-hl" style="top:679px"></div>
+        <div data-hf-id="hf-vnsa" class="m02-vl" style="left:0;height:681px"></div>
+        <div data-hf-id="hf-z1kv" class="m02-vl" style="left:227px;height:681px"></div>
+        <div data-hf-id="hf-cwq7" class="m02-vl" style="left:454px;height:681px"></div>
+        <div data-hf-id="hf-ki7z" class="m02-vl" style="left:681px;height:454px"></div>
+        <div data-hf-id="hf-2kxj" class="m02-vl" style="left:906px;height:681px"></div>
+        <div data-hf-id="hf-u84b" class="m02-cell" style="left:0;top:0"><img data-hf-id="hf-a49b" src="assets/marca-la-casa-de-las-pupusas.png" alt=""></div>
+        <div data-hf-id="hf-mj1s" class="m02-cell" style="left:227px;top:0"><img data-hf-id="hf-ahtu" src="assets/marca-kuskatan.png" alt=""></div>
+        <div data-hf-id="hf-0fvg" class="m02-cell" style="left:454px;top:0"><img data-hf-id="hf-v76p" src="assets/marca-guapollon.png" alt=""></div>
+        <div data-hf-id="hf-dn6o" class="m02-cell" style="left:681px;top:0"><img data-hf-id="hf-nj68" src="assets/marca-abel.png" alt=""></div>
+        <div data-hf-id="hf-pwwc" class="m02-cell" style="left:0;top:227px"><img data-hf-id="hf-m35e" src="assets/marca-barranko.png" alt=""></div>
+        <div data-hf-id="hf-kfq3" class="m02-cell" style="left:227px;top:227px"><img data-hf-id="hf-fbow" src="assets/marca-sabor-del-cielo.png" alt=""></div>
+        <div data-hf-id="hf-3whb" class="m02-cell" style="left:454px;top:227px"><img data-hf-id="hf-ax5m" src="assets/marca-la-casa-del-filete.png" alt=""></div>
+        <div data-hf-id="hf-vvt7" class="m02-cell" style="left:681px;top:227px"><img data-hf-id="hf-9fzc" src="assets/marca-la-pampa-centro-historico.png" alt=""></div>
+        <div data-hf-id="hf-yv18" class="m02-cell" style="left:0;top:454px"><img data-hf-id="hf-nftl" src="assets/marca-emerino-realtor.png" alt=""></div>
+        <div data-hf-id="hf-d1bb" class="m02-cell" style="left:227px;top:454px"><img data-hf-id="hf-usa5" src="assets/marca-vipros.png" alt=""></div>
+        <div data-hf-id="hf-m4qe" id="m02-more"><b data-hf-id="hf-pd7k" id="m02-count">+0</b><span data-hf-id="hf-l3g6">13 EN TOTAL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Scene 1 — the real "Campañas Destacadas" screen rises in as a framed card
+      tl.fromTo("#m02-card", { opacity: 0, y: 140 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.05);
+      tl.fromTo("#m02-card img", { y: 0 }, { y: -90, duration: 2.3, ease: "power1.inOut" }, 0.1);
+      // Scene 2 — scale-swap: card recedes as the header assembles
+      tl.to("#m02-card", { scale: 0.88, opacity: 0, duration: 0.55, ease: "power2.in" }, 1.6);
+      tl.fromTo("#m02-lab2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.75);
+      gsap.utils.toArray("#m02-h .m02-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.85 + i * 0.09);
+      });
+      tl.fromTo("#m02-sectors", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.4);
+      // Scene 3 — the gold thread draws the grid, then the logos pop in reading order
+      gsap.utils.toArray("#m02-wall .m02-hl").forEach(function (l, i) {
+        tl.fromTo(l, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 2.35 + i * 0.07);
+      });
+      gsap.utils.toArray("#m02-wall .m02-vl").forEach(function (l, i) {
+        tl.fromTo(l, { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power3.inOut" }, 2.45 + i * 0.06);
+      });
+      gsap.utils.toArray("#m02-wall .m02-cell img").forEach(function (img, i) {
+        tl.fromTo(img, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 2.75 + i * 0.16);
+      });
+      // +3 — count-up 0→3 with value-scaled growth
+      const cnt = document.getElementById("m02-count");
+      const st = { v: 0 };
+      tl.fromTo("#m02-more", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.3);
+      tl.to(st, { v: 3, duration: 0.5, ease: "power2.out", onUpdate: function () { cnt.textContent = "+" + Math.round(st.v); } }, 4.3);
+      tl.fromTo("#m02-count", { scale: 0.7 }, { scale: 1, duration: 0.5, ease: "power2.out" }, 4.3);
+      // Scene 4 — hold
+      window.__timelines["02-marcas"] = tl;
+    })();
+  </script>
+</template>

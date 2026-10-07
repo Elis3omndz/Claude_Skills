@@ -1,0 +1,97 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #f05-ground { position: absolute; inset: 0; background: #0A0A0A; }
+    #f05-head { position: absolute; left: 86px; right: 86px; top: 250px; }
+    #f05-lab { font-weight: 500; font-size: 26px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; }
+    #f05-h { margin-top: 26px; font-weight: 800; font-size: 92px; line-height: 1.05; letter-spacing: -0.02em; }
+    .f05-w { display: inline-block; margin-right: 0.22em; }
+    .f05-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; letter-spacing: 0; }
+    #f05-form { position: absolute; left: 86px; right: 86px; top: 630px; }
+    .f05-field { position: relative; height: 134px; padding-top: 22px; }
+    .f05-field small { display: block; font-weight: 500; font-size: 24px; letter-spacing: 0.25em; text-transform: uppercase; color: #C9A84C; }
+    .f05-val { margin-top: 16px; height: 56px; font-weight: 400; font-size: 44px; line-height: 56px; white-space: nowrap; }
+    .f05-caret { display: inline-block; width: 3px; height: 46px; margin-left: 4px; background: #C9A84C; vertical-align: -6px; opacity: 0; }
+    .f05-line { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #444444; }
+    .f05-gold { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #C9A84C; transform-origin: 0 50%; }
+    #f05-svc { margin-top: 44px; font-weight: 500; font-size: 24px; letter-spacing: 0.25em; color: #C9A84C; }
+    #f05-chips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 22px; }
+    .f05-chip { position: relative; border: 2px solid #444444; padding: 20px 30px; font-weight: 600; font-size: 27px; letter-spacing: 0.2em; text-transform: uppercase; color: #BBBBBB; }
+    .f05-fill { position: absolute; inset: -2px; background: #C9A84C; transform-origin: 0 50%; }
+    .f05-chiptxt { position: relative; }
+    #f05-btnwrap { position: relative; margin-top: 70px; height: 136px; }
+    #f05-btn { position: absolute; inset: 0; background: #C9A84C; color: #0A0A0A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 36px; letter-spacing: 0.25em; text-transform: uppercase; }
+    .f05-lbl { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; }
+    #f05-tap { position: absolute; left: 700px; top: 0px; width: 136px; height: 136px; border: 4px solid #FFFFFF; border-radius: 50%; background: rgba(255,255,255,0.14); }
+  </style>
+
+  <div data-hf-id="hf-os7u" id="root" data-composition-id="05-formulario" data-width="1080" data-height="1920" data-duration="6.5">
+    <div data-hf-id="hf-rxso" id="f05-ground" class="clip" data-start="0" data-duration="6.5" data-track-index="0"></div>
+    <div data-hf-id="hf-ry85" id="f05-body" class="clip" data-start="0" data-duration="6.5" data-track-index="1" style="position:absolute;inset:0;">
+      <div data-hf-id="hf-3uuj" id="f05-head">
+        <div data-hf-id="hf-78zv" id="f05-lab">Contacto</div>
+        <div data-hf-id="hf-3u3f" id="f05-h"><span data-hf-id="hf-qacf" class="f05-w">Tu</span><span data-hf-id="hf-criv" class="f05-w">proyecto</span><span data-hf-id="hf-xphp" class="f05-w">empieza</span><span data-hf-id="hf-l6ie" class="f05-w f05-em">aquí</span></div>
+      </div>
+      <div data-hf-id="hf-3zzf" id="f05-form">
+        <div data-hf-id="hf-1qdx" class="f05-field" id="f05-f1"><small data-hf-id="hf-uash">Nombre</small><div data-hf-id="hf-e4qx" class="f05-val"><span data-hf-id="hf-sket" id="f05-v1"></span><span data-hf-id="hf-ww7k" class="f05-caret" id="f05-c1"></span></div><div data-hf-id="hf-ukk2" class="f05-line"></div><div data-hf-id="hf-wmec" class="f05-gold" id="f05-g1"></div></div>
+        <div data-hf-id="hf-5ohy" class="f05-field" id="f05-f2"><small data-hf-id="hf-mf21">Correo electrónico</small><div data-hf-id="hf-bddp" class="f05-val"><span data-hf-id="hf-wiiu" id="f05-v2"></span><span data-hf-id="hf-7rp7" class="f05-caret" id="f05-c2"></span></div><div data-hf-id="hf-o2qe" class="f05-line"></div><div data-hf-id="hf-7hvz" class="f05-gold" id="f05-g2"></div></div>
+        <div data-hf-id="hf-huxi" id="f05-svc">SERVICIO DE INTERÉS</div>
+        <div data-hf-id="hf-mx8a" id="f05-chips">
+          <div data-hf-id="hf-9w4w" class="f05-chip" id="f05-chip-video"><div data-hf-id="hf-ufxe" class="f05-fill" id="f05-fill"></div><span data-hf-id="hf-my7v" class="f05-chiptxt" id="f05-videotxt">Video</span></div>
+          <div data-hf-id="hf-o03k" class="f05-chip">Fotografía</div>
+          <div data-hf-id="hf-m2tg" class="f05-chip">Drone</div>
+          <div data-hf-id="hf-l32t" class="f05-chip">Contenido digital</div>
+        </div>
+        <div data-hf-id="hf-xvgr" id="f05-btnwrap">
+          <div data-hf-id="hf-glvv" id="f05-btn"><span data-hf-id="hf-qhty" class="f05-lbl" id="f05-send">Enviar solicitud<svg data-hf-id="hf-yncp" width="44" height="24" viewBox="0 0 44 24" style="margin-left:18px"><path data-hf-id="hf-kyg8" d="M2 12 H38 M28 3 L39 12 L28 21" fill="none" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span data-hf-id="hf-zol7" class="f05-lbl" id="f05-sent">Enviado<svg data-hf-id="hf-6gfb" width="40" height="32" viewBox="0 0 40 32" style="margin-left:18px"><path data-hf-id="hf-pvq8" d="M4 17 L15 27 L36 5" fill="none" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div>
+          <div data-hf-id="hf-s8ec" id="f05-tap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const B = 0.571;
+      function typeInto(el, text, at, dur) {
+        const st = { n: 0 };
+        tl.to(st, { n: text.length, duration: dur, ease: "none", onUpdate: function () { el.textContent = text.slice(0, Math.round(st.n)); } }, at);
+      }
+      // Scene 1 — header + empty form
+      tl.fromTo("#f05-lab", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      gsap.utils.toArray("#f05-h .f05-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.08 + i * 0.12);
+      });
+      tl.fromTo("#f05-form", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.45);
+      // Scene 2 — the thread becomes the active field underline; fields type themselves
+      tl.fromTo("#f05-g1", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.inOut" }, 1.0);
+      tl.set("#f05-c1", { opacity: 1 }, 1.05);
+      typeInto(document.getElementById("f05-v1"), "María López", 1.15, 0.55);
+      tl.set("#f05-c1", { opacity: 0 }, 1.8);
+      tl.fromTo("#f05-g2", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.inOut" }, 1.8);
+      tl.set("#f05-c2", { opacity: 1 }, 1.85);
+      typeInto(document.getElementById("f05-v2"), "maria@restaurante.com", 1.9, 0.7);
+      tl.set("#f05-c2", { opacity: 0 }, 2.75);
+      tl.set("#f05-c2", { opacity: 1 }, 2.95);
+      tl.set("#f05-c2", { opacity: 0 }, 3.15);
+      // Scene 3 — the "Video" chip fills gold on the beat
+      tl.fromTo("#f05-fill", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 2.75);
+      tl.fromTo("#f05-videotxt", { color: "#BBBBBB" }, { color: "#0A0A0A", duration: 0.2, ease: "none" }, 2.85);
+      tl.fromTo("#f05-chip-video", { scale: 1 }, { scale: 0.94, duration: 0.1, ease: "power2.in" }, 2.75);
+      tl.to("#f05-chip-video", { scale: 1, duration: 0.35, ease: "power3.out" }, 2.85);
+      // Scene 4 — tap ring + button press, label swaps to the sent state
+      tl.fromTo("#f05-tap", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.35, ease: "power3.out" }, 3.6);
+      tl.fromTo("#f05-btn", { scale: 1 }, { scale: 0.95, duration: 0.12, ease: "power2.in" }, 3.95);
+      tl.to("#f05-btn", { scale: 1, duration: 0.4, ease: "power3.out" }, 4.07);
+      tl.to("#f05-tap", { scale: 1.9, opacity: 0, duration: 0.5, ease: "power2.out" }, 4.0);
+      tl.fromTo("#f05-send", { opacity: 1, y: 0 }, { opacity: 0, y: -30, duration: 0.25, ease: "power2.in" }, 4.0 + B / 2);
+      tl.fromTo("#f05-sent", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 4.25 + B / 2);
+      // Scene 5 — hold on the sent state
+      window.__timelines["05-formulario"] = tl;
+    })();
+  </script>
+</template>

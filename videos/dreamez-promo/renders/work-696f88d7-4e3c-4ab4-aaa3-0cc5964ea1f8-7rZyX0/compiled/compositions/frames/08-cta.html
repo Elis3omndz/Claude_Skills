@@ -1,0 +1,49 @@
+<template>
+  <style>
+    @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+    @font-face { font-family: "Playfair Display"; src: url("assets/fonts/PlayfairDisplay-Regular-Italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; color: #FFFFFF; font-family: "Montserrat", sans-serif; }
+    #t08-ground { position: absolute; inset: 0; background: #000000; }
+    #t08-cta { position: absolute; left: 86px; right: 86px; top: 1080px; text-align: center; }
+    #t08-h { font-weight: 800; font-size: 97px; line-height: 1.05; letter-spacing: -0.02em; }
+    .t08-w { display: inline-block; margin-right: 0.22em; }
+    .t08-em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #C9A84C; letter-spacing: 0; }
+    #t08-pillwrap { position: relative; width: 640px; height: 112px; margin: 56px auto 0; }
+    #t08-pill { position: absolute; left: 0; top: 0; width: 640px; height: 112px; }
+    #t08-pill rect { fill: none; stroke: #C9A84C; stroke-width: 3; }
+    #t08-url { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 40px; letter-spacing: 0.04em; color: #E8C97A; }
+  </style>
+
+  <div data-hf-id="hf-hg31" id="root" data-composition-id="08-cta" data-width="1080" data-height="1920" data-duration="5">
+    <div data-hf-id="hf-40bh" id="t08-ground" class="clip" data-start="0" data-duration="5" data-track-index="0"></div>
+    <!-- approved frame video hoisted by assemble-index -->
+    <div data-hf-id="hf-2v3n" id="t08-body" class="clip" data-start="0" data-duration="5" data-track-index="2" style="position:absolute;inset:0;">
+      <div data-hf-id="hf-08ci" id="t08-cta">
+        <div data-hf-id="hf-0tes" id="t08-h"><span data-hf-id="hf-w4gx" class="t08-w">Reserva</span><span data-hf-id="hf-6pl4" class="t08-w">tu</span><span data-hf-id="hf-389n" class="t08-w t08-em">sesión</span></div>
+        <div data-hf-id="hf-fz3x" id="t08-pillwrap">
+          <svg data-hf-id="hf-q8x9" id="t08-pill" viewBox="0 0 640 112"><rect data-hf-id="hf-x3ue" id="t08-rect" x="2" y="2" width="636" height="108" rx="54" ry="54" /></svg>
+          <div data-hf-id="hf-8xfe" id="t08-url">dreamezsv.netlify.app</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const PILL_LEN = 1630; // perimeter of the 636x108 r54 rounded rect
+      // Scene 1 — the official logo animation plays on black (video owned by the framework)
+      // Scene 2 — the CTA rises in under the resolved lockup
+      gsap.utils.toArray("#t08-h .t08-w").forEach(function (w, i) {
+        tl.fromTo(w, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 2.6 + i * 0.13);
+      });
+      // Scene 3 — the gold thread draws the URL pill, then the URL fades in
+      tl.fromTo("#t08-rect", { strokeDasharray: PILL_LEN, strokeDashoffset: PILL_LEN }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" }, 3.4);
+      tl.fromTo("#t08-url", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power1.out" }, 3.85);
+      // Scene 4 — final frame: hold, then fade the CTA to black (the film's only exit)
+      tl.to("#t08-cta", { opacity: 0, duration: 0.3, ease: "power1.in" }, 4.7);
+      window.__timelines["08-cta"] = tl;
+    })();
+  </script>
+</template>
