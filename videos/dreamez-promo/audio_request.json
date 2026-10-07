@@ -1,0 +1,38 @@
+{
+  "provider": "kokoro",
+  "speed": "1.0",
+  "lines": [
+    {
+      "id": "01",
+      "text": "¿Quieres que tu marca se vea increíble en redes?"
+    },
+    {
+      "id": "02",
+      "text": "Conoce Drímez: video, drone y fotografía que capturan lo mejor de tu negocio."
+    },
+    {
+      "id": "03",
+      "text": "Restaurantes, hoteles y marcas ya confían en nosotros."
+    },
+    {
+      "id": "04",
+      "text": "Más de doce años de experiencia y más de doscientos proyectos."
+    },
+    {
+      "id": "05",
+      "text": "¿Y lo mejor? Reservas tu sesión desde nuestra web en segundos: llenas un formulario cortito y tocas enviar."
+    },
+    {
+      "id": "06",
+      "text": "Y al instante te llega la confirmación a tu correo. ¡Así de fácil, sin esperas!"
+    },
+    {
+      "id": "07",
+      "text": "Reserva tu sesión hoy. Drímez: captura la realidad."
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  },
+  "voice": "ef_dora"
+}

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DREAMEZ Reel — Storyboard v1</title>
+<style>
+@font-face { font-family: "Montserrat"; src: url("capture/assets/fonts/montserrat-latin.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Playfair Display"; src: url("capture/assets/fonts/playfair-display-700-latin.woff2") format("woff2"); font-weight: 700; }
+@font-face { font-family: "Playfair Display"; src: url("capture/assets/fonts/playfair-display-italic-latin.woff2") format("woff2"); font-style: italic; font-weight: 400 900; }
+:root {
+  --bg: #0A0A0A; --bg2: #111111; --ink: #FFFFFF; --muted: #999999;
+  --gold: #C9A84C; --gold-l: #E8C97A; --gold-d: #9A7A32;
+  --sheet: #1b1b1b; --sheet-ink: #e9e6df;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--sheet); color: var(--sheet-ink); font-family: "Montserrat", system-ui, sans-serif; padding: 40px 32px 60px; }
+header { max-width: 1400px; margin: 0 auto 28px; display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--gold-d); padding-bottom: 18px; }
+header h1 { font-weight: 800; font-size: 34px; letter-spacing: -.5px; }
+header h1 em { font-family: "Playfair Display"; font-style: italic; color: var(--gold); font-weight: 700; }
+header p { color: #aaa; font-size: 14px; margin-top: 6px; max-width: 720px; line-height: 1.5; }
+.tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-d); padding: 8px 14px; white-space: nowrap; }
+.act { max-width: 1400px; margin: 26px auto 12px; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); display: flex; gap: 14px; align-items: center; }
+.act::after { content: ""; flex: 1; height: 1px; background: var(--gold-d); opacity: .6; }
+.grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+.cellwrap { display: flex; flex-direction: column; gap: 10px; }
+.cell { position: relative; aspect-ratio: 9 / 16; container-type: inline-size; background: var(--bg); overflow: hidden; color: var(--ink); outline: 1px solid #2a2a2a; }
+.label { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-l); }
+.label span:last-child { color: #8d8d8d; letter-spacing: 1px; }
+.note { font-size: 12.5px; line-height: 1.5; color: #c9c6bf; }
+.note b { color: #fff; }
+.chip { align-self: flex-start; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #555; color: #bbb; padding: 4px 8px; }
+/* keep-out guides: Reels top 220px / bottom 380px of 1920 */
+.ko-top, .ko-bot { position: absolute; left: 0; right: 0; z-index: 20; pointer-events: none; background: repeating-linear-gradient(135deg, rgba(255,80,80,.10) 0 6px, transparent 6px 12px); }
+.ko-top { top: 0; height: 11.46%; border-bottom: 1px dashed rgba(255,110,110,.55); }
+.ko-bot { bottom: 0; height: 19.79%; border-top: 1px dashed rgba(255,110,110,.55); }
+/* in-frame type (cqw → matches the 1080 build: 1cqw = 10.8px) */
+.d { font-weight: 800; line-height: 1.04; letter-spacing: -.02em; }
+.d em { font-family: "Playfair Display"; font-style: italic; font-weight: 700; color: var(--gold); letter-spacing: 0; }
+.lab { font-weight: 500; text-transform: uppercase; letter-spacing: .3em; color: var(--gold); font-size: 2.6cqw; }
+.body { color: var(--muted); font-size: 3.4cqw; line-height: 1.5; }
+.thread { position: absolute; height: 1px; background: var(--gold); }
+.abs { position: absolute; }
+.shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph { border: 1px dashed #555; color: #777; display: grid; place-items: center; font-size: 2.8cqw; text-align: center; letter-spacing: .1em; }
+/* frame 2 */
+.logos { position: absolute; left: 8cqw; right: 8cqw; top: 40%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--gold-d); border-left: 1px solid var(--gold-d); }
+.logos div { aspect-ratio: 1; border-right: 1px solid var(--gold-d); border-bottom: 1px solid var(--gold-d); display: grid; place-items: center; background: rgba(201,168,76,.04); }
+.logos img { width: 14cqw; height: 14cqw; object-fit: contain; border-radius: 50%; }
+/* frame 3 */
+.svc { font-weight: 800; font-size: 8cqw; line-height: 1.05; letter-spacing: -.02em; }
+.svc span { color: #3a3a3a; }
+.card { border: 1px solid var(--gold-d); background: rgba(201,168,76,.06); padding: 3cqw 4.5cqw; }
+.card h4 { font-weight: 700; font-size: 4.6cqw; }
+.card p { color: var(--muted); font-size: 3cqw; margin-top: 1.2cqw; line-height: 1.4; }
+.card i { font-style: normal; color: var(--gold); font-size: 2.6cqw; letter-spacing: .3em; display: block; margin-bottom: 1.2cqw; }
+/* frame 4 */
+.stat b { display: block; font-weight: 800; font-size: 17cqw; color: var(--gold); line-height: 1; letter-spacing: -.03em; }
+.stat span { display: block; font-size: 2.8cqw; letter-spacing: .25em; text-transform: uppercase; color: #cfcfcf; margin-top: 1.5cqw; }
+/* frame 5 */
+.field { border-bottom: 1px solid #444; padding: 2.4cqw 0 2cqw; }
+.field small { display: block; color: var(--gold); font-size: 2.3cqw; letter-spacing: .25em; text-transform: uppercase; }
+.field div { font-size: 4.2cqw; margin-top: 1.2cqw; }
+.field.on { border-bottom-color: var(--gold); }
+.chips { display: flex; flex-wrap: wrap; gap: 2cqw; margin-top: 2cqw; }
+.chips span { border: 1px solid #444; font-size: 2.6cqw; letter-spacing: .2em; padding: 2cqw 3cqw; text-transform: uppercase; color: #bbb; font-weight: 600; }
+.chips span.sel { border-color: var(--gold); background: var(--gold); color: #0A0A0A; }
+.btn { background: var(--gold); color: #0A0A0A; text-align: center; font-weight: 700; font-size: 3.4cqw; letter-spacing: .25em; padding: 4.6cqw 0; text-transform: uppercase; position: relative; }
+.tap { position: absolute; width: 12cqw; height: 12cqw; border: 2px solid #fff; border-radius: 50%; right: 18cqw; top: 50%; transform: translate(50%, -50%); box-shadow: 0 0 0 3cqw rgba(255,255,255,.12); }
+/* frame 6 */
+.node { position: absolute; left: 14cqw; right: 14cqw; border: 1px solid var(--gold-d); background: var(--bg2); padding: 3.6cqw 5cqw; display: flex; align-items: center; gap: 4cqw; }
+.node .ic { width: 9cqw; height: 9cqw; border: 1px solid var(--gold); display: grid; place-items: center; color: var(--gold); font-weight: 800; font-size: 3.6cqw; flex: none; }
+.node .t { font-weight: 700; font-size: 4.4cqw; }
+.node .s { color: var(--muted); font-size: 2.7cqw; margin-top: .6cqw; }
+.node.ok .ic { background: var(--gold); color: #0A0A0A; }
+.vline { position: absolute; left: 50%; width: 1px; background: var(--gold); }
+/* frame 7 */
+.notif { position: absolute; left: 6cqw; right: 6cqw; background: #1c1c1c; border: 1px solid #2c2c2c; padding: 3.4cqw 4cqw; display: flex; gap: 3.4cqw; align-items: center; }
+.av { width: 10cqw; height: 10cqw; background: #0A0A0A; border: 1px solid var(--gold-d); display: grid; place-items: center; flex: none; }
+.av img { width: 7cqw; }
+.mail { position: absolute; left: 6cqw; right: 6cqw; background: #f6f4ef; color: #111; padding: 6cqw 6cqw 7cqw; }
+.mail .hd { background: #0A0A0A; margin: -6cqw -6cqw 5cqw; padding: 5cqw; display: grid; place-items: center; border-bottom: 2px solid var(--gold); }
+.mail .hd img { width: 34cqw; }
+/* closing cells */
+.wide { grid-column: span 2; }
+.info { background: #141414; outline: 1px solid #2a2a2a; padding: 22px 24px; font-size: 13px; line-height: 1.6; color: #cfccc5; }
+.info h3 { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; font-weight: 600; }
+.seams { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.seams b { background: var(--bg); border: 1px solid var(--gold-d); color: #fff; font-size: 12px; padding: 6px 9px; font-weight: 700; }
+.seams i { font-style: normal; font-size: 10px; letter-spacing: 1px; color: var(--gold-l); text-transform: uppercase; }
+.sw { display: inline-flex; align-items: center; gap: 8px; margin: 0 14px 8px 0; font-size: 12px; }
+.sw::before { content: ""; width: 18px; height: 18px; background: var(--c); outline: 1px solid #444; }
+ul.bans { list-style: none; }
+ul.bans li::before { content: "✕ "; color: #e07a6a; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>DREAMEZ · Reel <em>Trabajemos juntos</em> — Storyboard v1</h1>
+    <p>"Tu proyecto empieza con un formulario — y te respondemos al instante." Un recorrido por la web que termina en el formulario y su automatización con n8n. Hilo conductor: una línea dorada que atraviesa cada escena.</p>
+  </div>
+  <div class="tag">1080×1920 · 40.5s · 8 frames · sin voz · audio en Instagram</div>
+</header>
+
+<div class="act">Acto 1 — La web</div>
+<div class="grid">
+
+  <!-- 01 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-01">
+      <img class="shot" src="capture/mobile/00-hero.png" alt="">
+      <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(10,10,10,.92) 0 30%,rgba(10,10,10,.15) 55%,rgba(10,10,10,.6) 100%)"></div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:12.5%">
+        <div class="lab">DREAMEZ · Producción audiovisual</div>
+        <div class="d" style="font-size:7cqw;margin-top:3cqw">¿Tu marca necesita contenido que <em>venda?</em></div>
+        <div class="thread" style="position:relative;width:30cqw;margin-top:4cqw"></div>
+      </div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>01 · Captura la realidad</span><span>frame-01 · 0.0–3.5s</span></div>
+    <div class="note"><b>Se mueve primero:</b> la captura real del hero hace un push-in lento; la pregunta sube palabra por palabra y el hilo dorado se dibuja de izquierda a derecha. A 2.4s la pregunta se va y queda el "CAPTURA LA REALIDAD" de tu web.</div>
+    <div class="chip">entrada: corte</div>
+  </div>
+
+  <!-- 02 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-02">
+      <div class="abs" style="left:8cqw;right:8cqw;top:13%">
+        <div class="lab">Colaboraciones</div>
+        <div class="d" style="font-size:8cqw;margin-top:3cqw">Marcas con las que ha <em>colaborado</em></div>
+        <div class="body" style="font-size:2.7cqw;letter-spacing:.2em;text-transform:uppercase;margin-top:3cqw;color:#bdbdbd">Restaurantes · Hotelería · Real estate · Marcas</div>
+      </div>
+      <div class="logos">
+        <div><img src="capture/assets/img/marca-la-casa-de-las-pupusas.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-kuskatan.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-guapollon.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-abel.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-barranko.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-sabor-del-cielo.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-la-casa-del-filete.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-la-pampa-centro-historico.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-emerino-realtor.png" alt=""></div>
+        <div><img src="capture/assets/img/marca-vipros.png" alt=""></div>
+        <div style="grid-column:span 2;aspect-ratio:auto;color:var(--gold);font-weight:800;font-size:6cqw;line-height:1;text-align:center">+3<span style="display:block;font-size:2.2cqw;letter-spacing:.2em;color:#bbb;font-weight:500;margin-top:1.4cqw">13 EN TOTAL</span></div>
+      </div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>02 · Marcas que ya confían</span><span>frame-02 · 3.5–9.0s</span></div>
+    <div class="note"><b>Se mueve primero:</b> la pantalla real "Campañas <i>Destacadas</i>" sube (1.6s), luego el hilo dorado traza la cuadrícula y los 10 logos entran uno por compás.</div>
+    <div class="chip">entrada: crossfade</div>
+  </div>
+
+  <!-- 03 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-03">
+      <div class="abs" style="left:8cqw;right:8cqw;top:13%">
+        <div class="svc">Video<br><span>Drone</span><br><span>Fotografía</span><br><span>Contenido digital</span></div>
+      </div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:36%">
+        <div class="d" style="font-size:7cqw">Tres modos de <em>trabajar</em></div>
+        <div style="display:grid;gap:2.4cqw;margin-top:4cqw">
+          <div class="card"><i>01</i><h4>Retrato de estudio</h4><p>Luz dura, fondo controlado, dirección de pose.</p></div>
+          <div class="card"><i>02</i><h4>Editorial y campaña</h4><p>Equipo completo, locación y color.</p></div>
+          <div class="card"><i>03</i><h4>Producto en negro</h4><p>Contraste alto, listo para catálogo y redes.</p></div>
+        </div>
+      </div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>03 · Tres modos de trabajar</span><span>frame-03 · 9.0–15.5s</span></div>
+    <div class="note"><b>Se mueve primero:</b> los 4 servicios se encienden en blanco uno por compás (los demás en gris), con un barrido de luz dorada. Luego suben las 3 tarjetas con borde dorado. Solo tipografía, sin fotos.</div>
+    <div class="chip">entrada: zoom-through</div>
+  </div>
+
+  <!-- 04 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-04">
+            <div class="abs" style="left:8cqw;right:8cqw;top:15%">
+        <div class="lab">Sobre nosotros</div>
+        <div class="d" style="font-size:9cqw;margin-top:3cqw">El equipo <em>DREAMEZ</em></div>
+      </div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:34%;display:grid;gap:5cqw">
+        <div class="stat"><b>12+</b><span>Años de experiencia</span></div>
+        <div class="thread" style="position:relative;width:100%;background:var(--gold-d)"></div>
+        <div class="stat"><b>200+</b><span>Proyectos completados</span></div>
+        <div class="thread" style="position:relative;width:100%;background:var(--gold-d)"></div>
+        <div class="stat"><b>13</b><span>Colaboraciones</span></div>
+      </div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>04 · El equipo</span><span>frame-04 · 15.5–19.0s</span></div>
+    <div class="note"><b>Se mueve primero:</b> los 3 números de tu web cuentan hacia arriba (0→12, 0→200, 0→13) en escalera de 0.4s, separados por el hilo dorado. Sin retratos.</div>
+    <div class="chip">entrada: crossfade</div>
+  </div>
+</div>
+
+<div class="act">Acto 2 — El formulario y la automatización</div>
+<div class="grid">
+
+  <!-- 05 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-05">
+      <div class="abs" style="left:8cqw;right:8cqw;top:13%">
+        <div class="lab">Contacto</div>
+        <div class="d" style="font-size:8.6cqw;margin-top:3cqw">Tu proyecto empieza <em>aquí</em></div>
+      </div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:33%">
+        <div class="field"><small>Nombre</small><div>María López</div></div>
+        <div class="field on"><small>Correo electrónico</small><div>maria@restaurante.com<span style="color:var(--gold)">|</span></div></div>
+        <div style="margin-top:4cqw"><small style="color:var(--gold);font-size:2.3cqw;letter-spacing:.25em">SERVICIO DE INTERÉS</small>
+          <div class="chips"><span class="sel">Video</span><span>Fotografía</span><span>Drone</span><span>Contenido digital</span></div>
+        </div>
+        <div class="btn" style="margin-top:7cqw">Enviar solicitud →<div class="tap"></div></div>
+      </div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>05 · El formulario ⭐</span><span>frame-05 · 19.0–25.0s</span></div>
+    <div class="note"><b>Se mueve primero:</b> el hilo dorado se convierte en la línea del campo "Nombre"; los campos se escriben solos, "Video" se pinta de dorado, y un toque presiona <b>ENVIAR SOLICITUD →</b> (rebote corto). Réplica 1:1 de tu formulario.</div>
+    <div class="chip">entrada: zoom-through</div>
+  </div>
+
+  <!-- 06 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-06">
+      <div class="abs" style="left:8cqw;right:8cqw;top:13%">
+        <div class="d" style="font-size:8cqw">Y en ese <em>instante…</em></div>
+      </div>
+      <div class="vline" style="top:30%;height:33%"></div>
+      <div class="node" style="top:25%"><div class="ic">✎</div><div><div class="t">Formulario</div><div class="s">Solicitud enviada</div></div></div>
+      <div class="node" style="top:36%"><div class="ic">n8n</div><div><div class="t">n8n</div><div class="s">Automatización en marcha</div></div></div>
+      <div class="node ok" style="top:47%"><div class="ic">✓</div><div><div class="t">Cliente guardado</div><div class="s">Registro con nombre, correo y servicio</div></div></div>
+      <div class="node ok" style="top:58%"><div class="ic">✓</div><div><div class="t">Correo de confirmación</div><div class="s">Enviado al cliente</div></div></div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:71.5%;text-align:center;font-weight:700;font-size:5.4cqw">Automático. <span style="font-family:'Playfair Display';font-style:italic;color:var(--gold)">Sin esperas.</span></div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>06 · La automatización ⭐</span><span>frame-06 · 25.0–31.0s</span></div>
+    <div class="note"><b>Se mueve primero:</b> el botón enviado se encoge hasta ser el nodo "Formulario"; un pulso dorado baja por la línea, cada nodo se ilumina y los dos últimos marcan ✓. Nodos abstractos, no una copia de la interfaz de n8n.</div>
+    <div class="chip">entrada: crossfade</div>
+  </div>
+
+  <!-- 07 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-07">
+      <div class="notif" style="top:13%">
+        <div class="av"><img src="capture/assets/img/logo-monograma.png" alt=""></div>
+        <div style="flex:1"><div style="display:flex;justify-content:space-between;font-size:2.6cqw;color:#9a9a9a"><span style="letter-spacing:.15em">DREAMEZ</span><span>ahora</span></div>
+          <div style="font-weight:700;font-size:3.8cqw;margin-top:.8cqw">Recibimos tu solicitud</div></div>
+      </div>
+      <div class="mail" style="top:28%">
+        <div class="hd"><img src="capture/assets/img/logo-dreamez.png" alt=""></div>
+        <div style="font-size:3.4cqw;color:#666">Hola María,</div>
+        <div style="font-weight:800;font-size:6.2cqw;line-height:1.1;margin-top:2.4cqw">Recibimos tu <span style="font-family:'Playfair Display';font-style:italic;color:var(--gold-d)">solicitud</span></div>
+        <div style="height:1px;background:var(--gold);margin:4cqw 0"></div>
+        <div style="font-size:3.4cqw;line-height:1.5;color:#333">Nos contactaremos contigo muy pronto para hablar de tu proyecto.</div>
+        <div style="font-size:3cqw;color:#777;margin-top:4cqw">— Equipo DREAMEZ</div>
+      </div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:72%;text-align:center;font-weight:800;font-size:6cqw">Respuesta al <span style="font-family:'Playfair Display';font-style:italic;color:var(--gold)">instante</span></div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>07 · El correo llega ⭐</span><span>frame-07 · 31.0–35.5s</span></div>
+    <div class="note"><b>Se mueve primero:</b> la notificación cae desde arriba; el correo se despliega debajo con su línea dorada. Luego <b>se congela 1.2s</b> (el frame quieto del video) para que se lea.</div>
+    <div class="chip">entrada: push-slide UP</div>
+  </div>
+
+  <!-- 08 -->
+  <div class="cellwrap">
+    <div class="cell" id="frame-08">
+      <div class="abs ph" style="left:10cqw;right:10cqw;top:26%;height:24%;border-color:#3a3a3a">
+        <div><img src="capture/assets/img/logo-dreamez.png" alt="" style="width:52cqw;display:block"><div style="margin-top:3cqw;font-size:2.2cqw;color:#666">[ animación oficial del logo ]</div></div>
+      </div>
+      <div class="abs" style="left:8cqw;right:8cqw;top:57%;text-align:center">
+        <div class="d" style="font-size:9cqw">Reserva tu <em>sesión</em></div>
+        <div style="display:inline-block;margin-top:5cqw;border:1px solid var(--gold);border-radius:999px;padding:3cqw 6cqw;color:var(--gold-l);font-size:3.6cqw;letter-spacing:.06em;font-weight:600">dreamezsv.netlify.app</div>
+      </div>
+      <div class="ko-top"></div><div class="ko-bot"></div>
+    </div>
+    <div class="label"><span>08 · Reserva tu sesión</span><span>frame-08 · 35.5–40.5s</span></div>
+    <div class="note"><b>Se mueve primero:</b> tu animación oficial del logo (sin su audio) arranca al centro; a los 2.6s sube "Reserva tu <i>sesión</i>" y el hilo dorado cierra el video dibujando la píldora de la URL.</div>
+    <div class="chip">entrada: blur-crossfade</div>
+  </div>
+
+  <div class="info wide">
+    <h3>Mapa de transiciones</h3>
+    <div class="seams"><b>01</b><i>crossfade</i><b>02</b><i>zoom-through</i><b>03</b><i>crossfade</i><b>04</b><i>zoom-through</i><b>05</b><i>crossfade</i><b>06</b><i>push-slide ↑</i><b>07</b><i>blur-crossfade</i><b>08</b></div>
+    <p style="margin-top:14px">Regla de dirección: todo sube (como el scroll). Los <i>zoom-through</i> marcan los cambios de sección: web → servicios, y equipo → formulario. Cortes y entradas sobre una rejilla de ~105 bpm, para que el audio que elijas en Instagram encaje.</p>
+    <p style="margin-top:10px;color:#9d9d9d">Las franjas rojas punteadas son las zonas que tapa la interfaz de Reels (arriba 220px, abajo 380px). Ahí no va texto.</p>
+  </div>
+
+  <div class="info wide">
+    <h3>Tokens · prohibiciones · qué es real</h3>
+    <div><span class="sw" style="--c:#0A0A0A">#0A0A0A fondo</span><span class="sw" style="--c:#111111">#111111 superficie</span><span class="sw" style="--c:#FFFFFF">#FFFFFF texto</span><span class="sw" style="--c:#999999">#999999 secundario</span><span class="sw" style="--c:#C9A84C">#C9A84C dorado</span><span class="sw" style="--c:#E8C97A">#E8C97A dorado claro</span><span class="sw" style="--c:#9A7A32">#9A7A32 línea</span></div>
+    <p style="margin:6px 0 10px">Títulos Montserrat 800 + una palabra en <span style="font-family:'Playfair Display';font-style:italic;color:var(--gold)">Playfair itálica dorada</span> · etiquetas Montserrat 500 en mayúsculas espaciadas · esquinas rectas (la píldora de la URL es la única redonda).</p>
+    <ul class="bans">
+      <li>Fotos de stock y retratos del equipo (son temporales)</li>
+      <li>Copiar la interfaz de n8n: el flujo se dibuja como nodos</li>
+      <li>Brillos/glow, y escenas que cambian sin que el hilo dorado las conecte</li>
+    </ul>
+    <p style="margin-top:10px"><b style="color:#fff">Real:</b> capturas de tu web (01, 02, 04), logos de clientes, animación oficial del logo. <b style="color:#fff">Recreado:</b> el formulario (réplica exacta, datos de ejemplo) y el flujo n8n + correo, que deben estar funcionando antes de publicar.</p>
+  </div>
+</div>
+</body>
+</html>

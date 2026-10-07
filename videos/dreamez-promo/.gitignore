@@ -4,3 +4,4 @@ renders/borrador-*
 node_modules/
 renders/work-*/
 renders/.*/
+audio_engine_meta.json
