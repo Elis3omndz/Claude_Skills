@@ -1,0 +1,96 @@
+[button] Saltar introducción
+[li] Portafolio
+[a] Portafolio
+[li] Galería
+[a] Galería
+[li] Nosotros
+[a] Nosotros
+[li] Contactar
+[a] Contactar
+[button] 
+[p] VIDEO · DRONE · FOTOGRAFÍA · CONTENIDO DIGITAL
+[a] EXPLORAR PORTAFOLIO ↓
+[p] PORTAFOLIO
+[h2] Campañas Destacadas
+[p] Todo el trabajo se ve aquí mismo: filtra por categoría y reproduce cualquier pieza sin salir de la página.
+[button] TODOS 11
+[button] RESTAURANTES 7
+[button] HOTELES Y AIRBNB 2
+[button] REAL ESTATE 0
+[button] MARCAS PERSONALES 2
+[button] EVENTOS 0
+[button] VER 5 PIEZAS MÁS
+[p] COLABORACIONES
+[h2] Marcas con las que ha colaborado
+[button] Volver a Fotografía
+[p] FOTOGRAFÍA FIJA · SERIE
+[h1] La luz decide. Nosotros elegimos el instante.
+[p] DISPARO
+[h2] Un cuadro. Una vez. Para siempre.
+[p] Retrato, editorial y producto. Dirección de principio a fin, con la misma mirada cinematográfica del video.
+[button] Disparar otra vez
+[p] FORMATOS
+[h2] Tres modos de trabajar
+[h3] Retrato de estudio
+[p] Luz dura, fondo controlado y dirección de pose. Ideal para perfil profesional, prensa y equipo directivo.
+[h3] Editorial y campaña
+[p] Equipo completo, moodboard, locación y postproducción de color. Media jornada o jornada completa.
+[h3] Producto en negro
+[p] Serie sobre fondo negro con reflejo y contraste alto, lista para catálogo y redes. Precio por pieza.
+[p] AGENDA
+[h2] Reserva una sesión
+[p] Cuéntame el proyecto y armamos la sesión: locación, luz y entrega en 48 horas.
+[button] ESCRIBIR AL ESTUDIO →
+[p] NUESTRO TRABAJO
+[h2] Galería de Imágenes
+[p] Explora nuestro portafolio fotográfico por categoría
+[button] COMERCIAL
+[button] GASTRONOMÍA
+[button] RETRATO
+[button] REAL ESTATE
+[button] EVENTOS
+[button] ARTÍSTICA
+[button] X
+[button] <
+[button] >
+[p] SOBRE NOSOTROS
+[h2] El equipo DREAMEZ
+[p] Somos cinco personas con un mismo oficio: contar historias de marca con imagen. Cada proyecto pasa por dirección, producción, cámara, fotografía y postproducción — el mismo equipo de principio a fin, sin intermediarios.
+[p] Hemos trabajado con restaurantes, hotelería, real estate y marcas comerciales en El Salvador y Guatemala, siempre con la misma vara: técnica cinematográfica y una entrega puntual.
+[p] DIRECCIÓN & CÁMARA
+[p] Diego Méndez
+[p] Dirige cada rodaje y opera cámara principal. Doce años entre publicidad y documental.
+[p] PRODUCCIÓN
+[p] Valeria Cruz
+[p] Arma cronogramas, locaciones y permisos. Nada entra a rodaje sin pasar por ella.
+[p] DRONE & AÉREAS
+[p] Marco Alvarado
+[p] Piloto certificado. Resuelve las tomas que solo existen a treinta metros de altura.
+[p] FOTOGRAFÍA FIJA
+[p] Andrea Rivas
+[p] Retrato, producto y editorial. La mirada detrás de las series de fotografía.
+[p] POSTPRODUCCIÓN & COLOR
+[p] Sergio Peña
+[p] Montaje, sonido y color. Convierte el material bruto en la pieza final.
+[p] CONTACTO
+[h2] Trabajemos Juntos
+[label] No completar
+[label] Nombre
+[label] Correo electrónico
+[label] WhatsApp / Teléfono
+[label] FECHA APROXIMADA DEL PROYECTO
+[label] VIDEO
+[label] FOTOGRAFÍA
+[label] DRONE
+[label] CONTENIDO DIGITAL
+[label] OTRO
+[label] Cuéntanos brevemente sobre tu proyecto
+[button] ENVIAR SOLICITUD →
+[p] Solicitud recibida
+[p] Nos contactaremos contigo lo más pronto posible.
+[p] ¿Prefieres WhatsApp? Escríbenos al +503 7222 1811 →
+[a] Escríbenos al +503 7222 1811 →
+[a] INSTAGRAM
+[a] TIKTOK
+[a] WHATSAPP
+[a] EMAIL

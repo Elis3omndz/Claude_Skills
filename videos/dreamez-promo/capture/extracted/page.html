@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="es">
+<head>
+<style>x-dc{display:none!important}</style>
+<script>window.__resources = {"p4":"assets/img/serie-p4.jpg","p1":"assets/img/serie-p1.jpg","p2":"assets/img/serie-p2.jpg","p3":"assets/img/serie-p3.jpg","p5":"assets/img/serie-p5.jpg","p6":"assets/img/serie-p6.jpg","p7":"assets/img/serie-p7.jpg","p8":"assets/img/serie-p8.jpg","p9":"assets/img/serie-p9.jpg","p10":"assets/img/serie-p10.jpg","p11":"assets/img/serie-p11.jpg","p12":"assets/img/serie-p12.jpg","p13":"assets/img/serie-p13.jpg","p14":"assets/img/serie-p14.jpg","p15":"assets/img/serie-p15.jpg","p16":"assets/img/serie-p16.jpg","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"js/vendor/react-dom.production.min.js","https://unpkg.com/react@18.3.1/umd/react.production.min.js":"js/vendor/react.production.min.js"};</script>
+<script src="js/dc-runtime.js"></script>
+<script src="js/vendor/react.production.min.js"></script>
+<script src="js/vendor/react-dom.production.min.js"></script>
+</head>
+<body>
+
+<!-- Declaración estática para Netlify Forms; el formulario visible lo renderiza dc-runtime. -->
+<form name="dreamez-contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="dreamez-contacto">
+  <input name="bot-field">
+  <input name="nombre"><input name="email"><input name="telefono">
+  <input name="fecha"><input name="servicio"><textarea name="descripcion"></textarea>
+</form>
+
+<x-dc>
+<helmet>
+    <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  
+</helmet>
+
+
+
+<div id="loader">
+  <div class="intro-stage" id="introStage" aria-hidden="true"></div>
+  <img class="loader-logo-img" src="http://127.0.0.1:8766/assets/img/logo-dreamez.png" alt="DREAMEZ">
+  <div class="loader-tagline">Producción Audiovisual</div>
+  <button type="button" class="intro-skip" id="introSkip">
+    <span>Saltar introducción</span>
+    <span class="rule"></span>
+  </button>
+</div>
+
+<div class="custom-cursor" id="cursor">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<nav id="navbar">
+  <a href="#hero" data-cursor="1">
+    <img class="nav-logo-icon" src="http://127.0.0.1:8766/assets/img/logo-monograma.png" alt="DREAMEZ">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#portfolio" data-cursor="1">Portafolio</a></li>
+    <li><a href="#galeria" data-cursor="1">Galería</a></li>
+    <li><a href="#about" data-cursor="1">Nosotros</a></li>
+    <li><a href="#contact" class="nav-cta" data-cursor="1">Contactar</a></li>
+  </ul>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu" data-cursor="1"><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#portfolio" data-cursor="1">Portafolio</a>
+  <a href="#galeria" data-cursor="1">Galería</a>
+  <a href="#about" data-cursor="1">Nosotros</a>
+  <a href="#contact" class="mobile-menu-cta" data-cursor="1">Contactar</a>
+</div>
+
+<section id="hero" data-screen-label="Hero">
+  <div class="hero-bg-carousel" id="heroCarousel">
+    <img src="http://127.0.0.1:8766/assets/img/hero-1.jpg" class="active" alt="">
+    <img src="http://127.0.0.1:8766/assets/img/hero-2.jpg" alt="">
+    <img src="http://127.0.0.1:8766/assets/img/hero-4.jpg" alt="">
+    <img src="http://127.0.0.1:8766/assets/img/hero-3.jpg" alt="">
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle" style="left:12%;top:72%;--dur:36s;--delay:-8s;--drift:8px"></div>
+    <div class="particle" style="left:38%;top:42%;--dur:42s;--delay:-19s;--drift:-6px"></div>
+    <div class="particle" style="left:68%;top:66%;--dur:38s;--delay:-12s;--drift:10px"></div>
+    <div class="particle" style="left:86%;top:30%;--dur:46s;--delay:-27s;--drift:-8px"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-mask-title" id="heroMaskTitle" data-cursor="1">
+      <span class="mask-text">CAPTURA<br>LA REALIDAD</span>
+      <span class="reveal-layer" id="revealLayer">CAPTURA<br>LA REALIDAD</span>
+    </div>
+    <p class="hero-subtitle reveal">Video · Drone · Fotografía · Contenido Digital</p>
+  </div>
+  <div class="hero-cta-float">
+    <a href="#portfolio" data-cursor="1">Explorar Portafolio ↓</a>
+  </div>
+</section>
+
+<section id="portfolio" data-screen-label="Campañas">
+  <div class="portfolio-header reveal">
+    <div>
+      <p class="section-label">Portafolio</p>
+      <h2 class="section-title">Campañas <em>Destacadas</em></h2>
+    </div>
+    <p class="photo-teaser-copy">Todo el trabajo se ve aquí mismo: filtra por categoría y reproduce cualquier pieza sin salir de la página.</p>
+  </div>
+
+  <div class="portfolio-filters-wrapper reveal">
+    <div class="portfolio-filters" id="reelFilters">
+      <button type="button" class="filter-btn active" data-filter="all" data-cursor="1"><span class="shimmer" data-label="Todos 11" style="--sd:0.00s">Todos <span class="filter-num">11</span></span></button>
+      <button type="button" class="filter-btn" data-filter="restaurantes" data-cursor="1"><span class="shimmer" data-label="Restaurantes 7" style="--sd:1.05s">Restaurantes <span class="filter-num">7</span></span></button>
+      <button type="button" class="filter-btn" data-filter="hoteles" data-cursor="1"><span class="shimmer" data-label="Hoteles y Airbnb 2" style="--sd:2.10s">Hoteles y Airbnb <span class="filter-num">2</span></span></button>
+      <button type="button" class="filter-btn" data-filter="realestate" data-cursor="1"><span class="shimmer" data-label="Real Estate 0" style="--sd:3.15s">Real Estate <span class="filter-num">0</span></span></button>
+      <button type="button" class="filter-btn" data-filter="personales" data-cursor="1"><span class="shimmer" data-label="Marcas Personales 2" style="--sd:4.20s">Marcas Personales <span class="filter-num">2</span></span></button>
+      <button type="button" class="filter-btn" data-filter="eventos" data-cursor="1"><span class="shimmer" data-label="Eventos 0" style="--sd:5.25s">Eventos <span class="filter-num">0</span></span></button>
+    </div>
+  </div>
+
+  <div class="reel-grid" id="reelGrid">
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/DC.mp4" poster="Videos/Thumbs/DC.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">DC</div>
+        <div class="reel-sub">Reel · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="hoteles" data-cursor="1">
+      <video src="Videos/Hoteles/Airbnb%20Abel%20Nogales.mp4" poster="Videos/Thumbs/AbelNogales.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Hoteles y Airbnb</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Abel Nogales</div>
+        <div class="reel-sub">Airbnb · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="personales" data-cursor="1">
+      <video src="Videos/MarcaPersonal/Percepci%C3%B3n%20Venta%202.mp4" poster="Videos/Thumbs/PercepcionVenta.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Marcas Personales</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Percepción de Venta</div>
+        <div class="reel-sub">Marca Personal · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/Don%20Bigote.mp4" poster="Videos/Thumbs/DonBigote.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Don Bigote</div>
+        <div class="reel-sub">Reel · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="hoteles" data-cursor="1">
+      <video src="Videos/Hoteles/Berak%C3%A1-Ubicaci%C3%B3n.mp4" poster="Videos/Thumbs/Beraka.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Hoteles y Airbnb</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Beraká</div>
+        <div class="reel-sub">Ubicación · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="hoteles" data-cursor="1">
+      <video src="Videos/Hoteles/Abel%20Cipreses%20Presentaci%C3%B3n.mp4" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Hoteles y Airbnb</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Abel Cipreses</div>
+        <div class="reel-sub">Presentación · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="hoteles" data-cursor="1">
+      <video src="Videos/Hoteles/Abel%20Cipreses%20Ubicaci%C3%B3n.mp4" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Hoteles y Airbnb</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Abel Cipreses</div>
+        <div class="reel-sub">Ubicación · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="personales" data-cursor="1">
+      <video src="Videos/MarcaPersonal/Poli%202.mp4" poster="Videos/Thumbs/Poli.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Marcas Personales</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Poli</div>
+        <div class="reel-sub">Marca Personal · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/Guapoll%C3%B3n%20La%20Uni%C3%B3n.mp4" poster="Videos/Thumbs/Guapollon.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Guapollón</div>
+        <div class="reel-sub">La Unión · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/Sabor%20del%20Cielo.mp4" poster="Videos/Thumbs/SaborDelCielo.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Sabor del Cielo</div>
+        <div class="reel-sub">Reel · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/La%20casa%20de%20las%20pupas.mp4" poster="Videos/Thumbs/LaCasaDeLasPupusas.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">La Casa de las Pupusas</div>
+        <div class="reel-sub">Reel · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/kUSKAT%C3%81N%2004.mp4" poster="Videos/Thumbs/Kuskatan.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Kuskatán</div>
+        <div class="reel-sub">Reel · 2025</div>
+      </div>
+    </div>
+
+    <div class="reel-card" data-category="restaurantes" data-cursor="1">
+      <video src="Videos/Restaurantes/IMG_7079.mp4" poster="Videos/Thumbs/IMG_7079.jpg" muted="1" loop="1" playsinline="1" preload="none"></video>
+      <div class="reel-shade"></div>
+      <span class="reel-tag">Restaurantes</span>
+      <button type="button" class="reel-mute" data-cursor="1" aria-label="Activar sonido">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></svg>
+      </button>
+      <div class="reel-play">
+        <svg sc-camel-view-box="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-brand">Restaurante</div>
+        <div class="reel-sub">Reel · 2025</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="reel-more-wrap">
+    <button type="button" class="reel-more" id="reelMore" data-cursor="1">
+      <span id="reelMoreLabel">Ver más piezas</span>
+      <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+    </button>
+  </div>
+
+  <div class="reel-footer">
+    <span class="reel-count" id="reelCount">Mostrando 8 de 11 piezas · todas las categorías</span>
+  </div>
+</section>
+
+<section class="collaborations" id="collaborations" aria-labelledby="collab-title">
+  <div class="collaborations-heading">
+    <p class="section-label">Colaboraciones</p>
+    <h2 class="section-title" id="collab-title">Marcas con las que <em>ha colaborado</em></h2>
+  </div>
+  <div class="logo-wall" id="brandsGrid">
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-vipros.png" alt="VIPROS" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-la-casa-del-filete.png" alt="La Casa del Filete" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-emerino-realtor.png" alt="Emerino Realtor" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-barranko.png" alt="Barranko" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-kuskatan.png" alt="Kuskatán" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-abel.png" alt="ABEL" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-sabor-del-cielo.png" alt="Sabor del Cielo" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-la-casa-de-las-pupusas.png" alt="La Casa de las Pupusas" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-guapollon.png" alt="Guapollón" loading="lazy"></div>
+    <div class="logo-tile"><img src="http://127.0.0.1:8766/assets/img/marca-la-pampa-centro-historico.png" alt="La Pampa Centro Histórico" loading="lazy"></div>
+  </div>
+</section>
+
+<div class="photo-landing" id="photoLanding" data-lenis-prevent="1" data-screen-label="Landing Fotografía">
+  <button type="button" class="photo-landing-back" id="photoBack" data-cursor="1">
+    <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="19" y1="12" x2="5" y2="12" />
+      <polyline points="12 19 5 12 12 5" />
+    </svg>
+    Volver a Fotografía
+  </button>
+
+  <section class="flash-hero" id="flashHero">
+    <div class="flash-sticky">
+      <div class="flash-layer flash-base" id="flashBase">
+        <img src="http://127.0.0.1:8766/assets/img/fotografia-flash.jpg" alt="Fotógrafo en sesión">
+      </div>
+      <div class="flash-layer flash-shot" id="flashShot">
+        <img src="http://127.0.0.1:8766/assets/img/fotografia-flash.jpg" alt="Disparo de flash">
+      </div>
+      <div class="flash-bloom" id="flashBloom"></div>
+      <div class="flash-grade"></div>
+      <div class="flash-vignette"></div>
+
+      <div class="flash-exif" id="flashExif">
+        <div class="flash-exif-tag">
+          <span class="corner"></span>
+          <span>Capturada</span>
+        </div>
+        <div class="flash-exif-data">1/200 s · f/1.8 · ISO 100</div>
+      </div>
+
+      <div class="flash-title" id="flashTitle">
+        <p class="section-label" id="flashKicker">Fotografía Fija · Serie</p>
+        <h1 class="section-title" id="flashHeadline" style="font-size:clamp(2.5rem,6.5vw,5.5rem)">La luz decide.<br>Nosotros elegimos<br><em>el instante.</em></h1>
+      </div>
+
+      <div class="flash-after" id="flashAfter">
+        <p class="section-label">Disparo</p>
+        <h2 class="section-title" style="font-size:clamp(2rem,4.6vw,4rem)">Un cuadro. Una vez.<br><em>Para siempre.</em></h2>
+        <p id="flashDesc">Retrato, editorial y producto. Dirección de principio a fin, con la misma mirada cinematográfica del video.</p>
+      </div>
+
+      <div class="flash-hint" id="flashHint">
+        <span>Desplaza para disparar</span>
+        <span class="rule"></span>
+      </div>
+
+      <button type="button" class="flash-replay" id="flashReplay" data-cursor="1">
+        <span class="dot"></span>
+        Disparar otra vez
+      </button>
+
+      <div class="flash-progress"><div id="flashBar"></div></div>
+    </div>
+  </section>
+
+  <section style="padding:0">
+    <div class="photo-series" id="photoSeries"></div>
+  </section>
+
+  <section style="border-top:1px solid var(--border)">
+    <div class="photo-rows">
+      <p class="section-label">Formatos</p>
+      <h2 class="section-title" style="margin-bottom:2.5rem">Tres modos de <em>trabajar</em></h2>
+      <div class="photo-row">
+        <span class="photo-row-num">01</span>
+        <div>
+          <h3>Retrato de estudio</h3>
+          <p>Luz dura, fondo controlado y dirección de pose. Ideal para perfil profesional, prensa y equipo directivo.</p>
+        </div>
+        <span class="photo-row-price">desde $150</span>
+      </div>
+      <div class="photo-row">
+        <span class="photo-row-num">02</span>
+        <div>
+          <h3>Editorial y campaña</h3>
+          <p>Equipo completo, moodboard, locación y postproducción de color. Media jornada o jornada completa.</p>
+        </div>
+        <span class="photo-row-price">desde $450</span>
+      </div>
+      <div class="photo-row">
+        <span class="photo-row-num">03</span>
+        <div>
+          <h3>Producto en negro</h3>
+          <p>Serie sobre fondo negro con reflejo y contraste alto, lista para catálogo y redes. Precio por pieza.</p>
+        </div>
+        <span class="photo-row-price">desde $25 / pieza</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2); border-top:1px solid var(--border)">
+    <div style="max-width:1000px; margin:0 auto; text-align:center">
+      <p class="section-label">Agenda</p>
+      <h2 class="section-title" style="margin-bottom:2rem">Reserva una <em>sesión</em></h2>
+      <p class="section-sub" style="margin:0 auto 2.5rem; text-align:center">Cuéntame el proyecto y armamos la sesión: locación, luz y entrega en 48 horas.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+        <button type="button" class="contact-submit" id="photoToContact" data-cursor="1" style="width:auto; padding:1.1rem 2.2rem"><span>Escribir al estudio →</span></button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section id="galeria" data-screen-label="Galería de Imágenes">
+  <div class="gallery-wrap">
+    <div class="gallery-head reveal">
+      <p class="section-label">Nuestro Trabajo</p>
+      <h2 class="section-title">Galería <em>de Imágenes</em></h2>
+      <p class="section-sub">Explora nuestro portafolio fotográfico por categoría</p>
+    </div>
+    <div class="gallery-tabs reveal">
+      <button type="button" class="filter-btn active" data-cat="comercial" data-cursor="1"><span class="shimmer" data-label="Comercial" style="--sd:0.00s">Comercial</span></button>
+      <button type="button" class="filter-btn" data-cat="gastronomia" data-cursor="1"><span class="shimmer" data-label="Gastronomía" style="--sd:1.05s">Gastronomía</span></button>
+      <button type="button" class="filter-btn" data-cat="retrato" data-cursor="1"><span class="shimmer" data-label="Retrato" style="--sd:2.10s">Retrato</span></button>
+      <button type="button" class="filter-btn" data-cat="realestate" data-cursor="1"><span class="shimmer" data-label="Real Estate" style="--sd:3.15s">Real Estate</span></button>
+      <button type="button" class="filter-btn" data-cat="eventos" data-cursor="1"><span class="shimmer" data-label="Eventos" style="--sd:4.20s">Eventos</span></button>
+      <button type="button" class="filter-btn" data-cat="artistica" data-cursor="1"><span class="shimmer" data-label="Artística" style="--sd:5.25s">Artística</span></button>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item gal-anim" data-cat="comercial"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Comercial - Estrategia de Marca" loading="lazy"><div class="gal-overlay"><span>Comercial</span></div></div>
+      <div class="gal-item gal-anim" data-cat="comercial"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="Comercial - Campaña Digital" loading="lazy"><div class="gal-overlay"><span>Comercial</span></div></div>
+      <div class="gal-item gal-anim" data-cat="comercial"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Comercial - Espacio Corporativo" loading="lazy"><div class="gal-overlay"><span>Comercial</span></div></div>
+      <div class="gal-item gal-anim" data-cat="comercial"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Comercial - Equipo Ejecutivo" loading="lazy"><div class="gal-overlay"><span>Comercial</span></div></div>
+      <div class="gal-item gal-anim" data-cat="comercial"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80" alt="Comercial - Reunión de Negocios" loading="lazy"><div class="gal-overlay"><span>Comercial</span></div></div>
+      <div class="gal-item gal-anim" data-cat="comercial"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80" alt="Comercial - Sesión de Trabajo" loading="lazy"><div class="gal-overlay"><span>Comercial</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="gastronomia"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Gastronomia - Plato Gourmet" loading="lazy"><div class="gal-overlay"><span>Gastronomía</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="gastronomia"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Gastronomia - Fotografía de Alimentos" loading="lazy"><div class="gal-overlay"><span>Gastronomía</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="gastronomia"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80" alt="Gastronomia - Cocina Artesanal" loading="lazy"><div class="gal-overlay"><span>Gastronomía</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="gastronomia"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80" alt="Gastronomia - Bowl Colorido" loading="lazy"><div class="gal-overlay"><span>Gastronomía</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="gastronomia"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&q=80" alt="Gastronomia - Desayuno Premium" loading="lazy"><div class="gal-overlay"><span>Gastronomía</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="gastronomia"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" alt="Gastronomia - Ensalada Gourmet" loading="lazy"><div class="gal-overlay"><span>Gastronomía</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="retrato"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80" alt="Retrato - Mujer Editorial" loading="lazy"><div class="gal-overlay"><span>Retrato</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="retrato"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80" alt="Retrato - Hombre Estudio" loading="lazy"><div class="gal-overlay"><span>Retrato</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="retrato"><img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&q=80" alt="Retrato - Moda Urbana" loading="lazy"><div class="gal-overlay"><span>Retrato</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="retrato"><img src="https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?w=800&q=80" alt="Retrato - Modelo Artístico" loading="lazy"><div class="gal-overlay"><span>Retrato</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="retrato"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80" alt="Retrato - Sesión Profesional" loading="lazy"><div class="gal-overlay"><span>Retrato</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="retrato"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=800&q=80" alt="Retrato - Expresión Natural" loading="lazy"><div class="gal-overlay"><span>Retrato</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="realestate"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Real Estate - Villa Moderna" loading="lazy"><div class="gal-overlay"><span>Real Estate</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="realestate"><img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=800&q=80" alt="Real Estate - Interior Elegante" loading="lazy"><div class="gal-overlay"><span>Real Estate</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="realestate"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Real Estate - Propiedad Premium" loading="lazy"><div class="gal-overlay"><span>Real Estate</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="realestate"><img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80" alt="Real Estate - Sala de Estar" loading="lazy"><div class="gal-overlay"><span>Real Estate</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="realestate"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Real Estate - Cocina Abierta" loading="lazy"><div class="gal-overlay"><span>Real Estate</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="realestate"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Real Estate - Terraza Privada" loading="lazy"><div class="gal-overlay"><span>Real Estate</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="eventos"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Eventos - Noche de Gala" loading="lazy"><div class="gal-overlay"><span>Eventos</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="eventos"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80" alt="Eventos - Celebración Corporativa" loading="lazy"><div class="gal-overlay"><span>Eventos</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="eventos"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80" alt="Eventos - Festival de Musica" loading="lazy"><div class="gal-overlay"><span>Eventos</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="eventos"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Eventos - Boda Intima" loading="lazy"><div class="gal-overlay"><span>Eventos</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="eventos"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Eventos - Conferencia Empresarial" loading="lazy"><div class="gal-overlay"><span>Eventos</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="eventos"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Eventos - Lanzamiento de Producto" loading="lazy"><div class="gal-overlay"><span>Eventos</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="artistica"><img src="https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=800&q=80" alt="Artistica - Abstracción Visual" loading="lazy"><div class="gal-overlay"><span>Artística</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="artistica"><img src="https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=800&q=80" alt="Artistica - Luz y Sombra" loading="lazy"><div class="gal-overlay"><span>Artística</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="artistica"><img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?w=800&q=80" alt="Artistica - Composición Urbana" loading="lazy"><div class="gal-overlay"><span>Artística</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="artistica"><img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&q=80" alt="Artistica - Estudio de Color" loading="lazy"><div class="gal-overlay"><span>Artística</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="artistica"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Artistica - Silhouette" loading="lazy"><div class="gal-overlay"><span>Artística</span></div></div>
+      <div class="gal-item gal-hidden" data-cat="artistica"><img src="https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80" alt="Artistica - Naturaleza Viva" loading="lazy"><div class="gal-overlay"><span>Artística</span></div></div>
+    </div>
+  </div>
+  <div class="gal-lightbox" id="galLightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button type="button" class="gal-lb-close" id="galLbClose" aria-label="Cerrar" data-cursor="1">X</button>
+    <button type="button" class="gal-lb-prev" id="galLbPrev" aria-label="Imagen anterior" data-cursor="1">&lt;</button>
+    <button type="button" class="gal-lb-next" id="galLbNext" aria-label="Imagen siguiente" data-cursor="1">&gt;</button>
+    <div class="gal-lb-img-wrap"><img id="galLbImg" alt=""></div>
+    <p class="gal-lb-caption" id="galLbCaption"></p>
+  </div>
+</section>
+<section id="about" data-screen-label="Sobre Nosotros">
+  <div class="about-intro">
+    <div class="about-text reveal">
+      <p class="section-label">Sobre Nosotros</p>
+      <h2 class="section-title">El equipo <em>DREAMEZ</em></h2>
+      <p>
+        Somos cinco personas con un mismo oficio: contar historias de marca con imagen. Cada proyecto pasa por dirección, producción, cámara, fotografía y postproducción — el mismo equipo de principio a fin, sin intermediarios.
+      </p>
+      <p>
+        Hemos trabajado con <span class="highlight">restaurantes</span>, <span class="highlight">hotelería</span>, <span class="highlight">real estate</span> y <span class="highlight">marcas comerciales</span> en El Salvador y Guatemala, siempre con la misma vara: técnica cinematográfica y una entrega puntual.
+      </p>
+      <div class="about-stats">
+        <div>
+          <span class="about-stat-num">12+</span>
+          <span class="about-stat-label">Años de experiencia</span>
+        </div>
+        <div>
+          <span class="about-stat-num">200+</span>
+          <span class="about-stat-label">Proyectos completados</span>
+        </div>
+        <div>
+          <span class="about-stat-num">13</span>
+          <span class="about-stat-label">Colaboraciones</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-member" data-cursor="1">
+      <div class="team-photo">
+        <img src="http://127.0.0.1:8766/assets/img/equipo-diego-mendez.jpg" alt="Diego Méndez">
+      </div>
+      <p class="team-role">Dirección &amp; Cámara</p>
+      <p class="team-name">Diego Méndez</p>
+      <p class="team-bio">Dirige cada rodaje y opera cámara principal. Doce años entre publicidad y documental.</p>
+    </div>
+    <div class="team-member" data-cursor="1">
+      <div class="team-photo">
+        <img src="http://127.0.0.1:8766/assets/img/equipo-valeria-cruz.jpg" alt="Valeria Cruz">
+      </div>
+      <p class="team-role">Producción</p>
+      <p class="team-name">Valeria Cruz</p>
+      <p class="team-bio">Arma cronogramas, locaciones y permisos. Nada entra a rodaje sin pasar por ella.</p>
+    </div>
+    <div class="team-member" data-cursor="1">
+      <div class="team-photo">
+        <img src="http://127.0.0.1:8766/assets/img/equipo-marco-alvarado.jpg" alt="Marco Alvarado">
+      </div>
+      <p class="team-role">Drone &amp; Aéreas</p>
+      <p class="team-name">Marco Alvarado</p>
+      <p class="team-bio">Piloto certificado. Resuelve las tomas que solo existen a treinta metros de altura.</p>
+    </div>
+    <div class="team-member" data-cursor="1">
+      <div class="team-photo">
+        <img src="http://127.0.0.1:8766/assets/img/equipo-andrea-rivas.jpg" alt="Andrea Rivas">
+      </div>
+      <p class="team-role">Fotografía Fija</p>
+      <p class="team-name">Andrea Rivas</p>
+      <p class="team-bio">Retrato, producto y editorial. La mirada detrás de las series de fotografía.</p>
+    </div>
+    <div class="team-member" data-cursor="1">
+      <div class="team-photo">
+        <img src="http://127.0.0.1:8766/assets/img/equipo-sergio-pena.jpg" alt="Sergio Peña">
+      </div>
+      <p class="team-role">Postproducción &amp; Color</p>
+      <p class="team-name">Sergio Peña</p>
+      <p class="team-bio">Montaje, sonido y color. Convierte el material bruto en la pieza final.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contacto">
+  <div class="contact-inner reveal">
+    <p class="section-label">Contacto</p>
+    <h2 class="section-title">Trabajemos<br><em>Juntos</em></h2>
+    <form class="contact-form lead-form" id="contactForm" name="dreamez-contacto" method="POST" novalidate="1">
+      <input type="hidden" name="form-name" value="dreamez-contacto">
+      <div hidden="1"><label>No completar<input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-row">
+        <div class="form-group">
+          <input type="text" id="leadName" name="nombre" placeholder=" " required="1" autocomplete="name" data-cursor="1">
+          <label for="leadName">Nombre</label>
+          <div class="form-line"></div>
+          <span class="form-error">Escribe tu nombre.</span>
+        </div>
+        <div class="form-group">
+          <input type="email" id="leadEmail" name="email" placeholder=" " required="1" autocomplete="email" inputmode="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" data-cursor="1">
+          <label for="leadEmail">Correo electrónico</label>
+          <div class="form-line"></div>
+          <span class="form-error">Ingresa un correo electrónico válido.</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <input type="tel" id="leadPhone" name="telefono" placeholder=" " autocomplete="tel" inputmode="tel" data-cursor="1">
+          <label for="leadPhone">WhatsApp / Teléfono</label>
+          <div class="form-line"></div>
+        </div>
+        <div class="form-group form-group-static">
+          <input type="date" id="leadDate" name="fecha" data-cursor="1">
+          <label for="leadDate">Fecha aproximada del proyecto</label>
+          <div class="form-line"></div>
+        </div>
+      </div>
+      <fieldset class="form-choices" id="leadService">
+        <legend>Servicio de interés</legend>
+        <div class="choice-list">
+          <label class="choice" data-cursor="1"><input type="radio" name="servicio" value="video" required="1"><span>Video</span></label>
+          <label class="choice" data-cursor="1"><input type="radio" name="servicio" value="fotografia"><span>Fotografía</span></label>
+          <label class="choice" data-cursor="1"><input type="radio" name="servicio" value="drone"><span>Drone</span></label>
+          <label class="choice" data-cursor="1"><input type="radio" name="servicio" value="contenido-digital"><span>Contenido digital</span></label>
+          <label class="choice" data-cursor="1"><input type="radio" name="servicio" value="otro"><span>Otro</span></label>
+        </div>
+        <span class="form-error">Selecciona un servicio.</span>
+      </fieldset>
+      <div class="form-group">
+        <textarea id="leadMessage" name="descripcion" placeholder=" " rows="3" maxlength="800" data-cursor="1"></textarea>
+        <label for="leadMessage">Cuéntanos brevemente sobre tu proyecto</label>
+        <div class="form-line"></div>
+      </div>
+      <p id="formStatus" role="alert" aria-live="assertive" hidden="1"></p>
+      <button type="submit" class="contact-submit" data-cursor="1">
+        <span>Enviar solicitud →</span>
+      </button>
+    </form>
+    <div class="form-done" id="formDone" role="status" aria-live="polite" tabindex="-1">
+      <div class="form-done-icon">
+        <svg sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+      </div>
+      <p class="section-label">Solicitud recibida</p>
+      <p class="form-done-text">Nos contactaremos contigo lo más pronto posible.</p>
+    </div>
+    <p class="contact-alt">¿Prefieres WhatsApp? <a href="https://wa.me/50372221811?text=Hola%20DREAMEZ%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener" data-cursor="1">Escríbenos al +503&#160;7222&#160;1811&#160;→</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img class="footer-logo-img" src="http://127.0.0.1:8766/assets/img/logo-dreamez.png" alt="DREAMEZ">
+    <div class="footer-info">
+      <span class="footer-name">Diego Méndez</span>
+      <span class="footer-tag">Producción Audiovisual</span>
+    </div>
+  </div>
+  <span class="footer-copy">© 2026 DREAMEZ · Todos los derechos reservados</span>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/dreamez_sv/" target="_blank" rel="noopener" data-cursor="1">Instagram</a>
+    <a href="https://www.tiktok.com/@dreamez_sv?lang=en" target="_blank" rel="noopener" data-cursor="1">TikTok</a>
+    <a href="https://wa.me/50372221811?text=Hola%20DREAMEZ%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener" data-cursor="1">WhatsApp</a>
+    <a href="#" data-cursor="1">Email</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.setupIntro();
+    this.boot = () => {
+      // offline/standalone: helmet scripts load async — wait for Lenis before wiring up
+      this.tries = (this.tries || 0) + 1;
+      if (typeof Lenis === 'undefined' && this.tries < 120) { setTimeout(this.boot, 40); return; }
+      try { this.init(); } catch (err) { console.error(err); }
+    };
+    this.boot();
+  }
+
+  setupIntro() {
+    // ── INTRO: animación DREAMEZ (una vez por sesión) ──
+    const d = document;
+    const root = d.documentElement;
+    const loader = d.getElementById('loader');
+    const stage = d.getElementById('introStage');
+    let seen = false;
+    try { seen = sessionStorage.getItem('dreamez-intro-visto') === '1'; } catch (err) {}
+    this.introState = 'off';
+    if (!loader || !stage || seen) return;
+    this.introState = 'playing';
+    root.classList.add('dz-intro', 'dz-lock');
+
+    const video = d.createElement('video');
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    ['muted', 'playsinline', 'webkit-playsinline', 'autoplay', 'disablepictureinpicture'].forEach(a => video.setAttribute(a, ''));
+    video.setAttribute('aria-hidden', 'true');
+    video.src = 'Videos/Animacion/DREAMEZANIMATION.mp4';
+    stage.appendChild(video);
+
+    let timer = 0;
+    const arm = (ms) => { clearTimeout(timer); timer = setTimeout(finish, ms); };
+    const onKey = (e) => {
+      if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); finish(); }
+    };
+    const blockTouch = (e) => e.preventDefault();
+    const finish = () => {
+      if (this.introState !== 'playing') return;
+      this.introState = 'done';
+      clearTimeout(timer);
+      try { sessionStorage.setItem('dreamez-intro-visto', '1'); } catch (err) {}
+      video.pause();
+      loader.removeEventListener('click', finish);
+      loader.removeEventListener('touchmove', blockTouch);
+      d.removeEventListener('keydown', onKey);
+      root.classList.remove('dz-lock');
+      if (this.lenis && this.lenis.start) this.lenis.start();
+      if (this.afterIntro) this.afterIntro();
+      // libera el video cuando el overlay ya terminó de desvanecerse
+      this.introCleanup = setTimeout(() => { video.removeAttribute('src'); video.load(); video.remove(); }, 1200);
+    };
+    this.stopIntroTimer = () => clearTimeout(timer);
+
+    video.addEventListener('playing', () => {
+      video.classList.add('is-playing');
+      const left = (isFinite(video.duration) ? video.duration : 8) - video.currentTime;
+      arm((left + 2) * 1000);
+    });
+    video.addEventListener('ended', finish);
+    video.addEventListener('error', finish);
+    loader.addEventListener('click', finish);
+    loader.addEventListener('touchmove', blockTouch, { passive: false });
+    d.addEventListener('keydown', onKey);
+    // si el video no arranca a tiempo (red lenta, autoplay bloqueado), se entra a la página
+    arm(5000);
+    const pr = video.play();
+    if (pr && pr.catch) pr.catch(finish);
+  }
+
+  init() {
+    const d = document;
+    const RES = { 'photo-1542038784456-1ea8e935640e': 'p1', 'photo-1611162617474-5b21e879e113': 'p2', 'photo-1600607686527-6fb886090705': 'p3', 'photo-1558769132-cb1aea458c5e': 'p4', 'photo-1511556820780-d912e42b4980': 'p5', 'photo-1509042239860-f550ce710b93': 'p6', 'photo-1506905925346-21bda4d32df4': 'p7', 'photo-1469474968028-56623f02e42e': 'p8', 'photo-1447752875215-b2761acb3c5d': 'p9', 'photo-1470071459604-3b5ec3a7fe05': 'p10', 'photo-1507003211169-0a1dd7228f2d': 'p11', 'photo-1497366216548-37526070297c': 'p12', 'photo-1600596542815-ffad4c1539a9': 'p13', 'photo-1511578314322-379afb476865': 'p14', 'photo-1566073771259-6a8506099945': 'p15', 'photo-1492684223066-81342ee5ff30': 'p16' };
+    const resolve = (url) => {
+      const m = /photo-[0-9a-f]+-[0-9a-f]+/.exec(url || '');
+      const id = m && RES[m[0]];
+      const bank = window.__resources;
+      return (id && bank && bank[id]) ? bank[id] : url;
+    };
+    const photoUrl = (id) => resolve('https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=80');
+    const lenis = (typeof Lenis !== 'undefined')
+      ? new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true })
+      : { raf() {}, destroy() {}, scrollTo(t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset, behavior: 'smooth' }); } };
+    this.lenis = lenis;
+    const raf = (time) => { lenis.raf(time); this.rafId = requestAnimationFrame(raf); };
+    this.rafId = requestAnimationFrame(raf);
+
+    // ── GALERÍA DE IMÁGENES: pestañas + lightbox ──
+    // (antes era un <script> en línea que se ejecutaba antes de que React montara la página)
+    {
+      const tabs = d.querySelectorAll('#galeria .filter-btn[data-cat]');
+      const allItems = d.querySelectorAll('#galeria .gal-item');
+      const lb = d.getElementById('galLightbox');
+      const lbImg = d.getElementById('galLbImg');
+      const lbCap = d.getElementById('galLbCaption');
+      const lbPrev = d.getElementById('galLbPrev');
+      const lbNext = d.getElementById('galLbNext');
+      let visible = [];
+      let lbIdx = 0;
+      const showCat = (cat) => {
+        visible = [];
+        allItems.forEach(it => {
+          const on = it.dataset.cat === cat;
+          it.classList.toggle('gal-hidden', !on);
+          it.classList.toggle('gal-anim', on);
+          it.style.display = on ? '' : 'none';
+          if (on) visible.push(it);
+        });
+        visible.forEach((it, i) => { it.style.animation = 'none'; void it.offsetWidth; it.style.animation = ''; it.style.animationDelay = (i * 0.07) + 's'; });
+      };
+      tabs.forEach(tab => tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        showCat(tab.dataset.cat);
+      }));
+      const openLb = (idx) => {
+        lbIdx = idx;
+        const img = visible[idx].querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = img.alt;
+        lb.classList.add('open');
+        if (lenis.stop) lenis.stop();
+        d.getElementById('galLbClose').focus({ preventScroll: true });
+      };
+      const closeLb = () => {
+        lb.classList.remove('open');
+        lbImg.removeAttribute('src');
+        if (lenis.start) lenis.start();
+        if (visible[lbIdx]) visible[lbIdx].focus({ preventScroll: true });
+      };
+      allItems.forEach(it => {
+        it.setAttribute('data-cursor', '1');
+        it.addEventListener('click', () => { const idx = visible.indexOf(it); if (idx >= 0) openLb(idx); });
+      });
+      d.getElementById('galLbClose').addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      lbPrev.addEventListener('click', () => openLb((lbIdx - 1 + visible.length) % visible.length));
+      lbNext.addEventListener('click', () => openLb((lbIdx + 1) % visible.length));
+      d.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowLeft') lbPrev.click();
+        if (e.key === 'ArrowRight') lbNext.click();
+      });
+      showCat('comercial');
+    }
+
+    // LOADER
+    const hideLoader = () => {
+      const loader = d.getElementById('loader');
+      if (!loader) return;
+      loader.classList.add('done');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        const nb = d.getElementById('navbar');
+        if (nb) nb.classList.add('visible');
+        initScrollReveal();
+        initPortalCards();
+      }, 800);
+    };
+    if (this.introState === 'playing') {
+      this.afterIntro = hideLoader;
+      if (lenis.stop) lenis.stop();
+    } else if (this.introState === 'done') {
+      hideLoader();
+    } else {
+      setTimeout(hideLoader, 1600);
+    }
+
+    // CURSOR
+    const cursor = d.getElementById('cursor');
+    const cursorDot = cursor.querySelector('.cursor-dot');
+    const cursorRing = cursor.querySelector('.cursor-ring');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    cursor.style.opacity = '0';
+    this.onMove = (e) => {
+      if (!this.cursorShown) { this.cursorShown = true; cursor.style.opacity = ''; }
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursorDot.style.transform = 'translate(' + mouseX + 'px, ' + mouseY + 'px) translate(-50%, -50%)';
+    };
+    d.addEventListener('mousemove', this.onMove);
+    const animateRing = () => {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      cursorRing.style.transform = 'translate(' + ringX + 'px, ' + ringY + 'px) translate(-50%, -50%)';
+      this.ringId = requestAnimationFrame(animateRing);
+    };
+    animateRing();
+    d.querySelectorAll('[data-cursor]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      el.addEventListener('mousedown', () => cursor.classList.add('click'));
+      el.addEventListener('mouseup', () => cursor.classList.remove('click'));
+    });
+
+    // HERO CAROUSEL
+    const carouselImages = d.querySelectorAll('.hero-bg-carousel img');
+    let currentSlide = 0;
+    this.carouselTimer = setInterval(() => {
+      carouselImages[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % carouselImages.length;
+      carouselImages[currentSlide].classList.add('active');
+    }, 5000);
+
+    const revealLayer = d.getElementById('revealLayer');
+    if (revealLayer && carouselImages.length) {
+      revealLayer.style.backgroundImage = 'url(' + carouselImages[0].src + ')';
+      this.maskTimer = setInterval(() => {
+        const active = d.querySelector('.hero-bg-carousel img.active');
+        if (active) revealLayer.style.backgroundImage = 'url(' + active.src + ')';
+      }, 5000);
+    }
+
+    const navbar = d.getElementById('navbar');
+    this.onWinScroll = () => {
+      navbar.style.background = window.scrollY > 100 ? 'rgba(10,10,10,0.95)' : 'rgba(10,10,10,0.85)';
+    };
+    window.addEventListener('scroll', this.onWinScroll, { passive: true });
+
+    // ── REEL DE VIDEOS: FILTROS + PAGINACIÓN ──
+    const reelGrid = d.getElementById('reelGrid');
+    const reelCards = Array.from(reelGrid.querySelectorAll('.reel-card'));
+    const reelCount = d.getElementById('reelCount');
+    const reelMore = d.getElementById('reelMore');
+    const reelMoreLabel = d.getElementById('reelMoreLabel');
+    const reelLabels = { all: 'todas las categorías', restaurantes: 'Restaurantes', hoteles: 'Hoteles y Airbnb', realestate: 'Real Estate', personales: 'Marcas Personales', eventos: 'Eventos' };
+    const PAGE = 8;
+    let activeFilter = 'all';
+    let shownLimit = PAGE;
+
+    const stopCard = (card) => {
+      const v = card.querySelector('video');
+      card.classList.remove('playing');
+      if (v) { v.pause(); v.muted = true; }
+    };
+
+    const matching = () => reelCards.filter(c => activeFilter === 'all' || c.dataset.category === activeFilter);
+
+    function renderReel(animate) {
+      const list = matching();
+      const shown = list.slice(0, shownLimit);
+      reelCards.forEach(card => {
+        const on = shown.includes(card);
+        if (!on) { stopCard(card); card.classList.add('hidden'); }
+        else card.classList.remove('hidden');
+      });
+      if (animate) {
+        shown.forEach((card, i) => {
+          if (card.classList.contains('visible')) return;
+          setTimeout(() => card.classList.add('visible'), 40 + i * 55);
+        });
+      }
+      const rest = list.length - shown.length;
+      reelMore.classList.toggle('done', rest <= 0);
+      reelMoreLabel.textContent = rest > 0 ? 'Ver ' + Math.min(rest, PAGE) + ' piezas más' : '';
+      reelCount.textContent = 'Mostrando ' + shown.length + ' de ' + list.length + (list.length === 1 ? ' pieza · ' : ' piezas · ') + reelLabels[activeFilter];
+    }
+
+    function initPortalCards() {
+      renderReel(true);
+    }
+
+    reelMore.addEventListener('click', () => {
+      shownLimit += PAGE;
+      renderReel(true);
+    });
+
+    reelCards.forEach(card => {
+      const video = card.querySelector('video');
+      const mute = card.querySelector('.reel-mute');
+      card.addEventListener('mouseenter', () => {
+        if (card.classList.contains('playing')) return;
+        video.muted = true;
+        const pr = video.play();
+        if (pr && pr.catch) pr.catch(() => {});
+      });
+      card.addEventListener('mouseleave', () => {
+        if (card.classList.contains('playing')) return;
+        video.pause();
+        video.currentTime = 0;
+      });
+      card.addEventListener('click', (ev) => {
+        if (ev.target.closest('.reel-mute')) return;
+        if (card.classList.contains('playing')) { stopCard(card); return; }
+        reelCards.forEach(c => { if (c !== card) stopCard(c); });
+        card.classList.add('playing');
+        video.muted = false;
+        const pr = video.play();
+        if (pr && pr.catch) pr.catch(() => { video.muted = true; video.play(); });
+      });
+      mute.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        video.muted = !video.muted;
+        mute.style.color = video.muted ? '' : 'var(--gold)';
+      });
+    });
+
+    const reelBtns = d.querySelectorAll('#reelFilters .filter-btn');
+    reelBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        reelBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        shownLimit = PAGE;
+        renderReel(true);
+      });
+    });
+
+
+    // ── FOTOGRAFÍA: TEASER → LANDING CON FLASH ──
+    const seriesData = {
+      producto: { kicker: 'Serie Producto', headline: 'La luz decide.<br>Nosotros elegimos<br><em>el instante.</em>', desc: 'Serie sobre fondo controlado: reflejo, contraste alto y una sola fuente dura. Producto listo para catálogo y campaña.', shots: ['photo-1542038784456-1ea8e935640e','photo-1611162617474-5b21e879e113','photo-1600607686527-6fb886090705','photo-1558769132-cb1aea458c5e','photo-1511556820780-d912e42b4980','photo-1509042239860-f550ce710b93'] },
+      lifestyle: { kicker: 'Serie Lifestyle', headline: 'Luz natural.<br>Gestos <em>reales.</em>', desc: 'Locación, hora dorada y dirección mínima. La marca vive dentro de una escena creíble, sin poses forzadas.', shots: ['photo-1600607686527-6fb886090705','photo-1506905925346-21bda4d32df4','photo-1469474968028-56623f02e42e','photo-1558769132-cb1aea458c5e','photo-1447752875215-b2761acb3c5d','photo-1470071459604-3b5ec3a7fe05'] },
+      corporativo: { kicker: 'Serie Corporativa', headline: 'Un retrato<br>que <em>sostiene</em> la mirada.', desc: 'Retrato de equipo y dirección para prensa: fondo neutro, luz dura y una sesión de veinte minutos por persona.', shots: ['photo-1511556820780-d912e42b4980','photo-1507003211169-0a1dd7228f2d','photo-1497366216548-37526070297c','photo-1542038784456-1ea8e935640e','photo-1558769132-cb1aea458c5e','photo-1600596542815-ffad4c1539a9'] },
+      publicitaria: { kicker: 'Serie Publicitaria', headline: 'Campaña fija<br>con <em>pulso</em> de cine.', desc: 'Dirección de arte, moodboard y postproducción de color. Piezas pensadas para vía pública y redes en el mismo rodaje.', shots: ['photo-1558769132-cb1aea458c5e','photo-1558769132-cb1aea458c5e','photo-1542038784456-1ea8e935640e','photo-1511578314322-379afb476865','photo-1611162617474-5b21e879e113','photo-1497366216548-37526070297c'] },
+      detalle: { kicker: 'Serie Detalle', headline: 'El detalle<br>es el <em>argumento.</em>', desc: 'Macro y textura: materiales, acabados y oficio. La capa que le da credibilidad a toda la campaña.', shots: ['photo-1611162617474-5b21e879e113','photo-1542038784456-1ea8e935640e','photo-1509042239860-f550ce710b93','photo-1600607686527-6fb886090705','photo-1566073771259-6a8506099945','photo-1492684223066-81342ee5ff30'] }
+    };
+
+    const landing = d.getElementById('photoLanding');
+    const photoSeries = d.getElementById('photoSeries');
+    const flashKicker = d.getElementById('flashKicker');
+    const flashHeadline = d.getElementById('flashHeadline');
+    const flashDesc = d.getElementById('flashDesc');
+    const els = {
+      hero: d.getElementById('flashHero'),
+      base: d.getElementById('flashBase'),
+      shot: d.getElementById('flashShot'),
+      bloom: d.getElementById('flashBloom'),
+      exif: d.getElementById('flashExif'),
+      title: d.getElementById('flashTitle'),
+      after: d.getElementById('flashAfter'),
+      hint: d.getElementById('flashHint'),
+      bar: d.getElementById('flashBar'),
+      replay: d.getElementById('flashReplay')
+    };
+    this.reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const clamp = (v) => Math.min(1, Math.max(0, v));
+    const smooth = (t) => { t = clamp(t); return t * t * (3 - 2 * t); };
+    const seg = (v, a, b) => smooth((v - a) / (b - a));
+
+    const paint = (p) => {
+      this.p = p;
+      const reveal = seg(p, 0.06, 0.42);
+      const burst = Math.pow(Math.sin(Math.PI * clamp((p - 0.02) / 0.34)), 2);
+      els.base.style.opacity = String(1 - reveal * 0.92);
+      els.base.style.transform = 'scale(' + (1 + 0.07 * smooth(p)) + ')';
+      els.base.style.filter = 'blur(' + (reveal * 2.4).toFixed(2) + 'px)';
+      els.shot.style.opacity = String(reveal);
+      els.shot.style.transform = 'scale(' + (1.1 - 0.09 * reveal) + ')';
+      els.bloom.style.opacity = String(burst * 0.75);
+      els.bloom.style.transform = 'scale(' + (0.86 + 0.5 * burst) + ')';
+      const exifIn = seg(p, 0.42, 0.62);
+      els.exif.style.opacity = String(exifIn);
+      els.exif.style.transform = 'translate3d(0,' + (14 * (1 - exifIn)) + 'px,0)';
+      const out = seg(p, 0.04, 0.26);
+      els.title.style.opacity = String(1 - out);
+      els.title.style.transform = 'translate3d(0,' + (-42 * out) + 'px,0)';
+      const afterIn = seg(p, 0.38, 0.8);
+      els.after.style.opacity = String(afterIn);
+      els.after.style.transform = 'translate3d(0,' + (34 * (1 - afterIn)) + 'px,0)';
+      els.hint.style.opacity = String(1 - seg(p, 0, 0.14));
+      els.bar.style.width = (Math.min(1, p * 1.15) * 100).toFixed(2) + '%';
+    };
+    this.paint = paint;
+
+    const run = (from, to, dur) => {
+      cancelAnimationFrame(this.flashFrame);
+      if (this.reduced) { paint(to); return; }
+      const t0 = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / dur);
+        paint(from + (to - from) * k);
+        if (k < 1) this.flashFrame = requestAnimationFrame(step);
+      };
+      this.flashFrame = requestAnimationFrame(step);
+    };
+
+    const fire = () => { this.fired = true; els.replay.classList.add('on'); run(this.p || 0, 1, 950); };
+    const rewind = () => { this.fired = false; els.replay.classList.remove('on'); run(this.p != null ? this.p : 1, 0, 620); };
+
+    els.replay.addEventListener('click', () => {
+      run(this.p != null ? this.p : 1, 0, 260);
+      setTimeout(fire, 300);
+    });
+
+    const onLandingScroll = () => {
+      const past = landing.scrollTop;
+      const ih = window.innerHeight;
+      if (!this.fired && past > ih * 0.1) fire();
+      else if (this.fired && past < ih * 0.015) rewind();
+    };
+    landing.addEventListener('scroll', onLandingScroll, { passive: true });
+
+    const openLanding = (key) => {
+      const s = seriesData[key] || seriesData.producto;
+      flashKicker.textContent = 'Fotografía Fija · ' + s.kicker;
+      flashHeadline.innerHTML = s.headline;
+      flashDesc.textContent = s.desc;
+      photoSeries.innerHTML = '';
+      s.shots.forEach((id, i) => {
+        const el = d.createElement('div');
+        el.className = 'series-card series-tall';
+        el.style.transitionDelay = (i * 0.07) + 's';
+        el.innerHTML = '<img src="' + photoUrl(id) + '" alt="' + s.kicker + '">' +
+          '<div class="series-caption"><strong>' + s.kicker + ' · ' + String(i + 1).padStart(2, '0') + '</strong><em>Fotografía sintética · preview</em></div>';
+        photoSeries.appendChild(el);
+      });
+      this.fired = false;
+      els.replay.classList.remove('on');
+      paint(0);
+      landing.classList.add('active');
+      landing.scrollTop = 0;
+      setTimeout(() => {
+        photoSeries.querySelectorAll('.series-card').forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 90));
+      }, 500);
+    };
+
+    d.querySelectorAll('[data-photo]').forEach(card => {
+      card.addEventListener('click', () => openLanding(card.dataset.photo));
+    });
+    d.getElementById('photoBack').addEventListener('click', () => landing.classList.remove('active'));
+    d.getElementById('photoToContact').addEventListener('click', () => {
+      landing.classList.remove('active');
+      const t = d.getElementById('contact');
+      if (t) setTimeout(() => lenis.scrollTo(t), 400);
+    });
+    paint(0);
+
+    // SCROLL REVEAL (incluye tarjetas del teaser)
+    function initScrollReveal() {
+      const targets = d.querySelectorAll('.reveal, .photo-card, .photo-cta-card, .team-member, .reel-card');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      targets.forEach(t => io.observe(t));
+    }
+
+    const aboutImg = d.getElementById('aboutParallaxImg');
+    if (aboutImg && window.gsap) {
+      gsap.to(aboutImg, { yPercent: 15, ease: 'none', scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true } });
+    }
+
+    // ── FORMULARIO DE INTERÉS ──
+    const form = d.getElementById('contactForm');
+    const formDone = d.getElementById('formDone');
+    const dateInput = d.getElementById('leadDate');
+    if (dateInput) {
+      const now = new Date();
+      dateInput.min = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      dateInput.addEventListener('input', () => dateInput.classList.toggle('has-value', !!dateInput.value));
+    }
+    const fieldOf = (el) => el.closest('.form-group, .form-choices');
+    const checkField = (el) => {
+      const filled = el.type === 'radio' || !el.required || el.value.trim() !== '';
+      const ok = filled && el.checkValidity();
+      const wrap = fieldOf(el);
+      if (wrap) wrap.classList.toggle('invalid', !ok);
+      return ok;
+    };
+    form.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener(el.type === 'radio' ? 'change' : 'input', () => {
+        const wrap = fieldOf(el);
+        if (wrap && wrap.classList.contains('invalid')) checkField(el);
+      });
+    });
+    const formStatus = d.getElementById('formStatus');
+    let submitting = false;
+    const sendLead = async (data) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 20000);
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ ...data, 'form-name': 'dreamez-contacto' }).toString(),
+          signal: controller.signal
+        });
+        if (!response.ok) throw new Error('No se pudo enviar la solicitud');
+      } finally { clearTimeout(timer); }
+    };
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (submitting) return;
+      formStatus.hidden = true;
+      formStatus.textContent = '';
+      const fields = [d.getElementById('leadName'), d.getElementById('leadEmail'), form.querySelector('input[name="servicio"]')];
+      const invalid = fields.filter(el => !checkField(el));
+      if (invalid.length) { invalid[0].focus(); return; }
+      const data = Object.fromEntries(new FormData(form));
+      const btn = form.querySelector('.contact-submit');
+      submitting = true;
+      btn.disabled = true;
+      const originalButton = btn.innerHTML;
+      btn.innerHTML = '<span>Enviando...</span>';
+      sendLead(data).then(() => {
+        formDone.style.minHeight = form.offsetHeight + 'px';
+        form.classList.add('is-sent');
+        setTimeout(() => {
+          form.style.display = 'none';
+          formDone.classList.add('visible');
+          formDone.focus({ preventScroll: true });
+        }, 450);
+      }).catch(() => {
+        formStatus.textContent = 'No pudimos confirmar el envío. Tus datos siguen aquí. Intenta de nuevo o escríbenos por WhatsApp.';
+        formStatus.hidden = false;
+        submitting = false;
+        btn.disabled = false;
+        btn.innerHTML = originalButton;
+      });
+    });
+
+    // ── MENÚ MÓVIL ──
+    const navToggle = d.getElementById('navToggle');
+    const mobileMenu = d.getElementById('mobileMenu');
+    const setMenu = (open) => {
+      d.documentElement.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      if (open && lenis.stop) lenis.stop();
+      else if (!open && lenis.start) lenis.start();
+    };
+    navToggle.addEventListener('click', () => setMenu(!d.documentElement.classList.contains('nav-open')));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    d.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && d.documentElement.classList.contains('nav-open')) setMenu(false);
+    });
+    if (window.matchMedia) {
+      const wide = window.matchMedia('(min-width: 769px)');
+      const onWide = (e) => { if (e.matches && d.documentElement.classList.contains('nav-open')) setMenu(false); };
+      if (wide.addEventListener) wide.addEventListener('change', onWide);
+    }
+
+    // ── CTA FLOTANTE: "Explorar" en el hero, "Contactar" después, oculto en Contacto ──
+    const ctaWrap = d.querySelector('.hero-cta-float');
+    const ctaLink = ctaWrap && ctaWrap.querySelector('a');
+    if (ctaLink && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([en]) => {
+        const past = en.intersectionRatio < 0.15 && en.boundingClientRect.top < 0;
+        ctaLink.setAttribute('href', past ? '#contact' : '#portfolio');
+        ctaLink.textContent = past ? 'Contactar →' : 'Explorar Portafolio ↓';
+      }, { threshold: [0, 0.15, 0.5] }).observe(d.getElementById('hero'));
+      new IntersectionObserver(([en]) => {
+        ctaWrap.classList.toggle('is-hidden', en.isIntersecting);
+      }, { threshold: 0 }).observe(d.getElementById('contact'));
+    }
+
+    // ── ACCESIBILIDAD: tarjetas operables con teclado ──
+    const makeOperable = (el, label) => {
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      el.setAttribute('role', 'button');
+      if (label && !el.hasAttribute('aria-label')) el.setAttribute('aria-label', label);
+      el.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target === el) { e.preventDefault(); el.click(); }
+      });
+    };
+    d.querySelectorAll('.reel-card').forEach(c => makeOperable(c, 'Reproducir ' + c.querySelector('.reel-brand').textContent));
+    d.querySelectorAll('#galeria .gal-item').forEach(g => makeOperable(g, 'Ampliar ' + g.querySelector('img').alt));
+
+    d.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = d.querySelector(anchor.getAttribute('href'));
+        if (target) lenis.scrollTo(target);
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.rafId);
+    cancelAnimationFrame(this.ringId);
+    cancelAnimationFrame(this.flashFrame);
+    clearInterval(this.carouselTimer);
+    clearInterval(this.maskTimer);
+    clearTimeout(this.introCleanup);
+    if (this.stopIntroTimer) this.stopIntroTimer();
+    document.removeEventListener('mousemove', this.onMove);
+    window.removeEventListener('scroll', this.onWinScroll);
+    if (this.lenis && this.lenis.destroy) this.lenis.destroy();
+  }
+}
+</script>
+
+
+
+</body>
+</html>

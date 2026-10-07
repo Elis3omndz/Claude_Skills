@@ -1,0 +1,17 @@
+{
+  "summary": {
+    "webAnimations": 0,
+    "cssDeclarations": 241,
+    "scrollTargets": 0,
+    "cdpAnimations": 0,
+    "canvases": 0
+  },
+  "namedAnimations": [
+    "loaderIn",
+    "taglineIn",
+    "heroParticleDrift",
+    "galFadeIn"
+  ],
+  "scrollTriggeredElements": 0,
+  "representativeAnimations": []
+}
